@@ -1,0 +1,24 @@
+- vehicle:
+    x: 44.2
+    y: -100.0
+    z: 0.3
+    yaw: 0.0
+    pub_tf: true
+
+- two:
+    x: 55.23
+    y: -103.67
+    z: 0.3
+    yaw: 0.0
+    model: fusion
+    color: {r: 0.8, g: 0.1, b: 0.0}
+    pub_tf: false
+    
+- three:
+    x: 39.80
+    y: -102.15
+    z: 0.3
+    yaw: 0.0
+    model: fusion
+    color: {r: 0.8, g: 0.1, b: 0.0}
+    pub_tf: false

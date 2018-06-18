@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <include file="$(find dbw_mkz_gazebo)/launch/dbw_mkz_gazebo.launch" >
+    <arg name="use_camera_control" value="false" />
+    <arg name="world_name" value="$(find dbw_runner)/worlds/straight_2lane.world" />
+    <arg name="sim_param_file" value="$(find dbw_runner)/yaml/straight_2lane.yaml" />
+  </include>
+  
+  <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
+    <arg name="live" value="false" />
+    <arg name="load_urdf" value="false" />
+    <arg name="can_ns" value="can_bus_dbw" />
+		<arg name="vehicle_ns" value="vehicle" />
+  </include>
+
+	<include file="$(find dbw_mkz_can)/launch/dbw.launch" >
+    <arg name="live" value="false" />
+    <arg name="load_urdf" value="false" />
+    <arg name="can_ns" value="can_bus_dbw" />
+		<arg name="vehicle_ns" value="mkz" />
+  </include>
+
+
+
+	<!--node name="main" pkg="dbw_runner" type="main.py" output="screen">
+		<rosparam file="$(find dbw_runner)/yaml/car.yaml" ns="car"/>
+		<rosparam file="$(find dbw_runner)/yaml/track_2lane.yaml" ns="track"/>
+	</node-->
+
+
+	
+
+</launch>

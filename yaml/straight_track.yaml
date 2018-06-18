@@ -1,0 +1,7 @@
+- vehicle:
+    x: 0
+    y: -50.0
+    z: 0.3
+    yaw: 1.5708
+    pub_tf: true
+
