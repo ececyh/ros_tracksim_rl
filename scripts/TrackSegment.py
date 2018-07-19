@@ -38,6 +38,7 @@ class Segment(object):
             self.length = -1
             self.radius = Len
 
+
         # calculate startpos and endpos
         self.lane_pos = []
         if self.type == 'straight':
@@ -52,31 +53,32 @@ class Segment(object):
             self.endpos = self.elsum(Origin, [a * cos(Origin[2] + pi / 2), a * sin(Origin[2] + pi / 2), pi], 3)
             theta = self.startpos[2]
 
-        # append all the line to lane_pos
-        # 각 line의 시작점과 끝점을 넣는다.
-        b = floor(self.nr_lane / 2) * self.lane_width
-        lane1_start = self.elsum(self.startpos, [-b * sin(theta), b * cos(theta), theta], 3)
-        lane1_end = self.elsum(self.endpos, [-b * sin(theta), b * cos(theta), theta], 3)
-        self.lane_pos.append(lane1_start)
-        self.lane_pos.append(lane1_end)
 
-        i = 1
-        while i < self.nr_lane + 1:
-            p_lane_start = lane1_start
-            p_lane_end = lane1_end
+        if self.type == 'curved' or self.type == 'straight':
+            # append all the line to lane_pos
+            # 각 line의 시작점과 끝점을 넣는다.
+            b = floor(self.nr_lane / 2) * self.lane_width
+            lane1_start = self.elsum(self.startpos, [-b * sin(theta), b * cos(theta), theta], 3)
+            lane1_end = self.elsum(self.endpos, [-b * sin(theta), b * cos(theta), theta], 3)
+            self.lane_pos.append(lane1_start)
+            self.lane_pos.append(lane1_end)
 
-            lane_start = self.elsum(p_lane_start,
-                                    (i * self.lane_width * sin(theta), -i * self.lane_width * cos(theta), theta), 3)
-            lane_end = self.elsum(p_lane_end,
-                                  (i * self.lane_width * sin(theta), -i * self.lane_width * cos(theta), theta), 3)
+            i = 1
+            while i < self.nr_lane + 1:
+                p_lane_start = lane1_start
+                p_lane_end = lane1_end
 
-            self.lane_pos.append(lane_start)
-            self.lane_pos.append(lane_end)
+                lane_start = self.elsum(p_lane_start,
+                                        (i * self.lane_width * sin(theta), -i * self.lane_width * cos(theta), theta), 3)
+                lane_end = self.elsum(p_lane_end,
+                                      (i * self.lane_width * sin(theta), -i * self.lane_width * cos(theta), theta), 3)
 
-            i += 1
+                self.lane_pos.append(lane_start)
+                self.lane_pos.append(lane_end)
 
+                i += 1
 
-        # set boundary
+            # set boundary
         self.boundary = []
         self.setboundary()
 
@@ -136,3 +138,17 @@ class Segment(object):
                 i -= 1
 
             self.boundary.append((self.lane_pos[0][0], self.lane_pos[0][1]))
+
+        elif self.type == 'intersection':
+            bd_list = [(7.5, 5.5),(5.5, 5.5),(5.5, 7.5),
+                       (-5.5, 7.5),(-5.5, 5.5),(-7.5, 5.5),
+                       (-7.5, -5.5),(-5.5, -5.5),(-5.5, -7.5),
+                       (5.5, -7.5),(5.5, -5.5),(7.5, -5.5),(7.5,5.5)
+                       ]
+
+            theta = self.origin[2]
+
+            for p in bd_list :
+                rotated_p = (cos(theta)*p[0]-sin(theta)*p[1],sin(theta)*p[0]+cos(theta)*p[1])
+                boundary_p = self.elsum((self.origin[0], self.origin[1]), rotated_p, 2)
+                self.boundary.append(boundary_p)

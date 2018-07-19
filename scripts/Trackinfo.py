@@ -144,10 +144,11 @@ class Trackinfo(object):
 
         seg_idx = self.findSegment(pose)
         if seg_idx == -1:
-            print("waiting for pose information or your car is out of the track")
             return -1
         else:
             seg = self.Track[seg_idx] # pose가 속한 segment
+
+        lane_number = -1
 
         if seg.type == 'straight':
 
@@ -168,14 +169,13 @@ class Trackinfo(object):
 
         return lane_number
 
-    # TODO assumed 정해진 방향으로만 달린다고 ********* 고치기
+
 # TODO empirical value
     def findSidelines(self, pose):
         # pose를 기준으로 양쪽 line을 찾는다.
 
         seg_idx = self.findSegment(pose)
         if seg_idx == -1:
-            print("waiting for pose information or your car is out of the track")
             self.lane_number = -1
             self.leftline = [-1, -1]
             self.rightline = [-1, -1]
@@ -194,6 +194,9 @@ class Trackinfo(object):
             devfromline0 = np.linalg.norm(c) / np.linalg.norm(lane1vec)
             self.lane_number = int(np.floor_divide(devfromline0, seg.lane_width))
 
+            self.leftline = [seg.lane_pos[2 * self.lane_number], seg.lane_pos[2 * self.lane_number + 1]]
+            self.rightline = [seg.lane_pos[2 * self.lane_number + 2], seg.lane_pos[2 * self.lane_number + 3]]
+
         elif seg.type == 'curved':
 
             vecfromOrigin = np.subtract(pose, seg.origin[0:2])
@@ -201,9 +204,9 @@ class Trackinfo(object):
             devfromline0 = devfromOrigin - seg.radius
             self.lane_number = int(np.floor_divide(devfromline0, seg.lane_width))
 
-                             # line의 시작점                       line의 끝점
-        self.leftline = [seg.lane_pos[2 * self.lane_number], seg.lane_pos[2 * self.lane_number + 1]]
-        self.rightline = [seg.lane_pos[2 * self.lane_number + 2], seg.lane_pos[2 * self.lane_number + 3]]
+                                 # line의 시작점                       line의 끝점
+            self.leftline = [seg.lane_pos[2 * self.lane_number], seg.lane_pos[2 * self.lane_number + 1]]
+            self.rightline = [seg.lane_pos[2 * self.lane_number + 2], seg.lane_pos[2 * self.lane_number + 3]]
 
     def findDeviation(self, pose):
         # 양쪽 line으로부터 떨어진 거리
@@ -231,15 +234,23 @@ class Trackinfo(object):
             devfromline1 = devfromOrigin - (curr_seg.radius + self.lane_number * curr_seg.lane_width)
             devfromline2 = curr_seg.lane_width - devfromline1
 
-            # theta = pose[2] - curr_seg.origin[2]
-            #
-            # if theta > 0 :
-            #     self.deviation.left = devfromline1
-            #     self.deviation.right = devfromline2
-            #
-            # else :
-            #     self.deviation.right = devfromline1
-            #     self.deviation.left = devfromline2
+            posevecfromorigin = np.subtract(pose[0:2], self.Track[self.current_segment].Origin[0:2])
+            tangenttheta = np.arctan2(posevecfromorigin[1], posevecfromorigin[0]) + np.pi / 2  # 접선벡터
+
+            if tangenttheta > np.pi:  tangenttheta -= 2 * np.pi
+            elif tangenttheta < -np.pi:   tangenttheta += 2 * np.pi
+
+            diff = tangenttheta - pose[2]
+            if diff > np.pi : diff -= 2*np.pi
+            elif diff < -np.pi : diff += 2*np.pi
+
+            if abs(diff) <= np.pi/2 :
+                self.deviation.left = devfromline1
+                self.deviation.right = devfromline2
+
+            else :
+                self.deviation.right = devfromline1
+                self.deviation.left = devfromline2
 
             self.deviation[0] = devfromline1 # left
             self.deviation[1] = devfromline2 # right
@@ -260,9 +271,11 @@ class Trackinfo(object):
             posevecfromorigin = np.subtract(self.pose[0:2], self.Track[self.current_segment].Origin[0:2])
             tangenttheta = np.arctan2(posevecfromorigin[1], posevecfromorigin[0]) + np.pi / 2 #접선벡터
 
-            if tangenttheta > np.pi:
-                tangenttheta - 2 * np.pi
-            elif tangenttheta < -np.pi:
-                tangenttheta + 2 * np.pi
+            if tangenttheta > np.pi:    tangenttheta -= 2 * np.pi
+            elif tangenttheta < -np.pi:    tangenttheta += 2 * np.pi
 
-            self.heading = pose[2] - tangenttheta
+            diff = tangenttheta - pose[2]
+            if diff > np.pi: diff -= 2 * np.pi
+            elif diff < -np.pi: diff += 2 * np.pi
+
+            self.heading = abs(diff)

@@ -25,7 +25,8 @@ class Recorder(object):
 
     def __init__(self, filename):
 
-        self.filename = "data/data_" + str(int(filename)) + ".csv" #처음에 Recorder class initiate할 때의 시간이 csv 이름
+        self.filename = "data_" + str(int(filename)) + ".csv" #처음에 Recorder class initiate할 때의 시간이 csv 이름
+        print "data file name : " + self.filename + "\n"
         image_subscriber = rospy.Subscriber("vehicle/front_camera/image_raw", Image, self.imagecallback)
 
     def imagecallback(self, data):
@@ -45,10 +46,10 @@ class Recorder(object):
             # 일정거리 이상 움직이거나, 일정 각도 이상 움직이고 && 현재 data 수가 maximum data 수를 넘지 않았을 때
 
             img_filename = 0
-            if self.current_image != 0:
-                cv2_img = bridge.imgmsg_to_cv2(self.current_image, "bgr8")
-                img_filename = 'data/camera_image_' + str(rospy.get_time()) + '.png'
-                cv2.imwrite(img_filename, cv2_img) #이미지 저장
+            # if self.current_image != 0:
+            #     cv2_img = bridge.imgmsg_to_cv2(self.current_image, "bgr8")
+            #     img_filename = 'camera_image_' + str(rospy.get_time()) + '.png'
+            #     cv2.imwrite(img_filename, cv2_img) #이미지 저장
 
             with open(self.filename, 'a') as f:
                 data = [trackinfo.my_car.pose, trackinfo.my_car.velocity,

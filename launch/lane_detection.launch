@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<launch>
+
+  <arg name="nodelet" default="true" />
+  <arg name="manager" default="vision_pipeline_manager" />
+
+  <group if="$(arg nodelet)" >
+    <include ns="vehicle/front_camera" file="$(find image_proc)/launch/image_proc.launch" >
+      <arg name="manager" value="/$(arg manager)" />
+      <arg name="respawn" value="true" />
+    </include>
+    <node pkg="nodelet" type="nodelet" name="$(arg manager)" args="manager" />
+    <node ns="vehicle" pkg="nodelet" type="nodelet" name="lane_detection" args="load dbw_mkz_vision_sim/LaneDetectionNodelet /$(arg manager)" />
+    <node ns="vehicle" pkg="nodelet" type="nodelet" name="lane_fit" args="load dbw_mkz_vision_sim/LaneFitNodelet /$(arg manager)" />
+    <node ns="vehicle" pkg="nodelet" type="nodelet" name="lane_planner" args="load dbw_mkz_vision_sim/LanePlannerNodelet /$(arg manager)" />
+  </group>
+
+  <group unless="$(arg nodelet)" >
+    <node ns="vehicle/front_camera" pkg="image_proc" type="image_proc" name="image_proc" />
+    <node ns="vehicle" pkg="dbw_mkz_vision_sim" type="lane_detection_node" name="lane_detection" output="screen" />
+    <node ns="vehicle" pkg="dbw_mkz_vision_sim" type="lane_fit_node" name="lane_fit" output="screen" />
+    <node ns="vehicle" pkg="dbw_mkz_vision_sim" type="lane_planner_node" name="lane_planner" output="screen" />
+  </group>
+
+  <!--node pkg="rviz" type="rviz" name="lane_detection_rviz" args="-d $(find dbw_mkz_vision_sim)/rviz/lane_detection.rviz" respawn="true" /-->
+
+</launch>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <param name="world" value="straight_2lane"/>
+  <rosparam file="$(find dbw_runner)/yaml/car.yaml" ns="car"/>
+  <rosparam file="$(find dbw_runner)/yaml/track_2lane.yaml" ns="track"/>
+
+  <include file="$(find dbw_mkz_gazebo)/launch/dbw_mkz_gazebo.launch" >
+    <arg name="headless" default="False" />
+    <arg name="use_camera_control" value="false" />
+    <arg name="world_name" value="$(find dbw_runner)/worlds/straight_2lane_rl.world" />
+    <arg name="sim_param_file" value="$(find dbw_runner)/yaml/straight_2lane.yaml" />
+  </include>
+  
+  <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
+    <arg name="live" value="false" />
+    <arg name="load_urdf" value="false" />
+    <arg name="can_ns" value="can_bus_dbw" />
+		<arg name="vehicle_ns" value="vehicle" />
+  </include>
+
+  <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
+    <arg name="live" value="false" />
+    <arg name="load_urdf" value="false" />
+    <arg name="can_ns" value="can_bus_dbw" />
+    <arg name="vehicle_ns" value="mkz" />
+  </include>
+
+
+<!--
+  <node name="main" pkg="dbw_runner" type="main.py" output="screen"/>
+	<arg name="dev" default="/dev/input/js0"/>
+	<node pkg="joy" type="joy_node" name="joy_node" output="screen" >
+		 <param name="dev" value="$(arg dev)" />
+		 <param name="deadzone" value="0.01" />
+		 <param name="autorepeat_rate" value="50.0" />
+	</node>
+
+	<node name="image_view1" pkg="image_view" type="image_view" respawn="false" output="screen">
+		<remap from="image" to="/vehicle/front_camera/image_raw" />
+	</node>
+
+	<node name="image_view2" pkg="image_view" type="image_view" respawn="false" output="screen">
+		<remap from="image" to="/mkz/front_camera/image_raw" />
+	</node>
+	
+-->
+	
+
+</launch>

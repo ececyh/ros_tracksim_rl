@@ -4,8 +4,8 @@
   
   <include file="$(find dbw_mkz_gazebo)/launch/dbw_mkz_gazebo.launch" >
     <arg name="use_camera_control" value="false" />
-    <arg name="world_name" value="$(find dbw_runner)/worlds/straight_2lane.world" />
-    <arg name="sim_param_file" value="$(find dbw_runner)/yaml/straight_2lane.yaml" />
+    <arg name="world_name" value="$(find dbw_runner)/worlds/curved_2lane.world" />
+    <arg name="sim_param_file" value="$(find dbw_runner)/yaml/curved_2lane.yaml" />
   </include>
   
   <include file="$(find dbw_mkz_can)/launch/dbw.launch" >

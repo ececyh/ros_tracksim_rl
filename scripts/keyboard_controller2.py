@@ -18,7 +18,7 @@ screen.addstr(4, 5, '--------------------------------')
 def controller():
     linear_vel = 0.0
     angular_vel = 0.0
-    linear_step = 0.5
+    linear_step = 1.0
     angular_step = 0.10
 
     pub = rospy.Publisher('mkz/cmd_vel', Twist, queue_size=10) # green car : mkz
