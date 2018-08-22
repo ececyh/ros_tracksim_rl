@@ -4,7 +4,7 @@
   
   <include file="$(find dbw_mkz_gazebo)/launch/dbw_mkz_gazebo.launch" >
     <arg name="use_camera_control" value="false" />
-    <arg name="world_name" value="$(find dbw_mkz_gazebo)/worlds/test_track.world" />
+    <arg name="world_name" value="$(find dbw_runner)/worlds/now_making_lgm.world" />
     <arg name="sim_param_file" value="$(find dbw_mkz_gazebo)/yaml/single_vehicle_test_track.yaml" />
   </include>
   

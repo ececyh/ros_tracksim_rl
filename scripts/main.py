@@ -33,7 +33,6 @@ if __name__ == '__main__':
     rospy.init_node('track_simulator_main', anonymous=True) # node 시작
     listener = tf.TransformListener()
 
-
     rate = rospy.Rate(1) # hz 1초에 한번
 
     while not rospy.is_shutdown():
@@ -43,8 +42,6 @@ if __name__ == '__main__':
             continue
 
         break
-
-
 
     seg.Segment.nr_lane = rospy.get_param("track/nr_lane", 2)
     seg.Segment.lane_width = rospy.get_param("track/lane_width", 4.5)
@@ -58,7 +55,6 @@ if __name__ == '__main__':
         # Straight 2lane          type        origin       length
         Track.append(seg.Segment('straight', (-200, 0, 0), 200)) # 각각의 segment를 생성해 Track에 append
         Track.append(seg.Segment('straight', (0, 0, 0), 200))
-
 
     elif worldname == 'curved_2lane':
 

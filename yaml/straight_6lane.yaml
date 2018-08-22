@@ -1,16 +1,16 @@
 - vehicle:
-    x: -76.22
-    y: -97.0
+    x: 2.888
+    y: -5.443
     z: 0.3
-    yaw: 0
+    yaw: 1.57
     color: red
     pub_tf: true
 
 - mkz:
-    x: -66.6
-    y: -102
+    x: -6.713
+    y: 1.785
     z: 0.3
-    yaw: 0.0
+    yaw: 1.57
     model: mkz
     color: green
     pub_tf: false

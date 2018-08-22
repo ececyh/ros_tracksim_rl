@@ -131,7 +131,7 @@ class wheel_controller():
 
     def callback(self, data):
         self.steering.steering_wheel_angle_cmd = 4 * data.axes[0]
-        self.accel.pedal_cmd = 0.6*(0.5 + 0.5 * data.axes[2])
+        self.accel.pedal_cmd = 0.4*(0.5 + 0.5 * data.axes[2])
         self.brake.pedal_cmd = 0.5 + 0.5 * data.axes[3]
 
         gear_button = data.buttons

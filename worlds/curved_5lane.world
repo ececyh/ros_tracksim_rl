@@ -83,10 +83,70 @@
       <pose frame=''>-15.3208 -4.27543 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>930 908000000</sim_time>
-      <real_time>23 3262442</real_time>
-      <wall_time>1528898327 883040297</wall_time>
-      <iterations>4148</iterations>
+      <sim_time>1494 241000000</sim_time>
+      <real_time>584 272623331</real_time>
+      <wall_time>1532581241 464178559</wall_time>
+      <iterations>551776</iterations>
+      <model name='curved_5lane_50m'>
+        <pose frame=''>50.0055 49.9533 0.1 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>50.0055 49.9533 0.1 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='curved_5lane_50m_0'>
+        <pose frame=''>-99.7508 50.2036 0.1 0 -0 1.57</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>-99.7508 50.2036 0.1 0 -0 1.57</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='curved_5lane_50m_1'>
+        <pose frame=''>-99.7981 50.3208 0 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>-99.7981 50.3208 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='curved_5lane_50m_1_clone'>
+        <pose frame=''>0.285576 -49.4176 0 0 -0 3.14159</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>0.285576 -49.4176 0 0 -0 3.14159</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='curved_5lane_50m_1_clone_clone'>
+        <pose frame=''>50.1188 -49.491 0 0 0 -1.57</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>50.1188 -49.491 0 0 0 -1.57</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='curved_5lane_50m_clone'>
+        <pose frame=''>-99.812 -49.6805 0.1 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link_0'>
+          <pose frame=''>-99.812 -49.6805 0.1 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='grass_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -97,81 +157,61 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m'>
-        <pose frame=''>25 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_6'>
+        <pose frame=''>100 25 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>25 0 0 0 0 -1.5707</pose>
+          <pose frame=''>100 25 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m_0'>
-        <pose frame=''>125 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_6_clone'>
+        <pose frame=''>100.037 -24.989 0 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>125 0 0 0 0 -1.5707</pose>
+          <pose frame=''>100.037 -24.989 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m_clone'>
-        <pose frame=''>-25 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_7'>
+        <pose frame=''>25.3027 100.01 0 0 -0 1.57</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>-25 0 0 0 0 -1.5707</pose>
+          <pose frame=''>25.3027 100.01 0 0 -0 1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m_clone_0'>
-        <pose frame=''>-75 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_8'>
+        <pose frame=''>-24.5757 100.024 0 0 -0 1.57</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>-75 0 0 0 0 -1.5707</pose>
+          <pose frame=''>-24.5757 100.024 0 0 -0 1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m_clone_1'>
-        <pose frame=''>75 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_8_clone'>
+        <pose frame=''>25.3528 -99.5168 0 0 -0 1.57</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>75 0 0 0 0 -1.5707</pose>
+          <pose frame=''>25.3528 -99.5168 0 0 -0 1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='straight_4lane_50m_clone_1_clone_0'>
-        <pose frame=''>175 0 0 0 0 -1.5707</pose>
+      <model name='straight_5lane_50m_9'>
+        <pose frame=''>-74.5807 100.071 0 0 -0 1.57</pose>
         <scale>1 1 1</scale>
         <link name='link_0'>
-          <pose frame=''>175 0 0 0 0 -1.5707</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='straight_4lane_50m_clone_2'>
-        <pose frame=''>-125 0 0 0 0 -1.5707</pose>
-        <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>-125 0 0 0 0 -1.5707</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='straight_4lane_50m_clone_3'>
-        <pose frame=''>-175 0 0 0 0 -1.5707</pose>
-        <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>-175 0 0 0 0 -1.5707</pose>
+          <pose frame=''>-74.5807 100.071 0 0 -0 1.57</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
@@ -183,14 +223,14 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-184.323 -8.16278 98.6245 -0 1.4218 1.43643</pose>
+        <pose frame=''>-1.57402 -2.53986 510.14 3.3e-05 1.5698 1.53142</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
     </gui>
-    <model name='straight_4lane_50m'>
+    <model name='curved_5lane_50m'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -206,7 +246,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -219,7 +259,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -275,11 +315,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-2.45007 -0.36825 0 0 -0 0</pose>
+      <pose frame=''>61.344 46.827 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone'>
+    <model name='straight_5lane_50m_6'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -295,7 +335,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -308,7 +348,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -364,11 +404,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-41.3599 0.298079 0 0 0 -1.578</pose>
+      <pose frame=''>111.911 20.1528 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone_0'>
+    <model name='straight_5lane_50m_7'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -384,7 +424,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -397,7 +437,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -453,11 +493,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-90.4365 0.651065 0 0 0 -1.578</pose>
+      <pose frame=''>28.0561 107.293 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone_1'>
+    <model name='straight_5lane_50m_8'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -473,7 +513,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -486,7 +526,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -542,11 +582,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>48.266 -0.179782 0 0 0 -1.578</pose>
+      <pose frame=''>-28.1227 113.822 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone_2'>
+    <model name='straight_5lane_50m_9'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -562,7 +602,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -575,7 +615,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -631,11 +671,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-140.166 0.906637 0 0 0 -1.578</pose>
+      <pose frame=''>-84.1607 115.045 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone_3'>
+    <model name='curved_5lane_50m_0'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -651,7 +691,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -664,7 +704,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -720,11 +760,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>-185.183 0.42063 0 0 0 -1.578</pose>
+      <pose frame=''>-153.642 55.4575 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_clone_1_clone_0'>
+    <model name='curved_5lane_50m_1'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -740,7 +780,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -753,7 +793,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -809,11 +849,11 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>147.975 -0.995437 0 0 0 -1.578</pose>
+      <pose frame=''>-157.449 -9.92283 0 0 -0 0</pose>
     </model>
-    <model name='straight_4lane_50m_0'>
+    <model name='curved_5lane_50m_clone'>
       <link name='link_0'>
-        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <pose frame=''>0 0 0 0 -0 0</pose>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -829,7 +869,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -842,7 +882,7 @@
           <pose frame=''>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -898,8 +938,363 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <pose frame=''>95.6434 -1.39377 0 0 -0 0</pose>
+      <pose frame=''>-96.5342 -39.6121 0.1 0 -0 0</pose>
+    </model>
+    <model name='curved_5lane_50m_1_clone'>
+      <link name='link_0'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>3.38753 -40.1309 0 0 -0 3.1239</pose>
+    </model>
+    <model name='straight_5lane_50m_8_clone'>
+      <link name='link_0'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>27.2389 -89.7351 0 0 -0 1.57</pose>
+    </model>
+    <model name='curved_5lane_50m_1_clone_clone'>
+      <link name='link_0'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://curved_5lane_50m/curved_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>112.708 -73.408 0 0 -0 3.1239</pose>
+    </model>
+    <model name='straight_5lane_50m_6_clone'>
+      <link name='link_0'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <cast_shadows>1</cast_shadows>
+          <transparency>0</transparency>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose frame=''>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://straight_5lane_50m/straight_5lane_50m.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>1</mu>
+                <mu2>1</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0</slip1>
+                <slip2>0</slip2>
+              </ode>
+              <torsional>
+                <coefficient>1</coefficient>
+                <patch_radius>0</patch_radius>
+                <surface_radius>0</surface_radius>
+                <use_patch_radius>1</use_patch_radius>
+                <ode>
+                  <slip>0</slip>
+                </ode>
+              </torsional>
+            </friction>
+            <bounce>
+              <restitution_coefficient>0</restitution_coefficient>
+              <threshold>1e+06</threshold>
+            </bounce>
+            <contact>
+              <collide_without_contact>0</collide_without_contact>
+              <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+              <collide_bitmask>1</collide_bitmask>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0</min_depth>
+              </ode>
+              <bullet>
+                <split_impulse>1</split_impulse>
+                <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+13</kp>
+                <kd>1</kd>
+              </bullet>
+            </contact>
+          </surface>
+        </collision>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <pose frame=''>99.9625 -14.8607 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>
-

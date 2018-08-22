@@ -22,6 +22,6 @@
     <node ns="vehicle" pkg="dbw_mkz_vision_sim" type="lane_planner_node" name="lane_planner" output="screen" />
   </group>
 
-  <!--node pkg="rviz" type="rviz" name="lane_detection_rviz" args="-d $(find dbw_mkz_vision_sim)/rviz/lane_detection.rviz" respawn="true" /-->
+  <node pkg="rviz" type="rviz" name="lane_detection_rviz" args="-d $(find dbw_mkz_vision_sim)/rviz/lane_detection.rviz" respawn="true"/>
 
 </launch>
