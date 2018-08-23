@@ -2,62 +2,74 @@
 import numpy as np
 import csv
 import rospy
-from os import getcwd
-
-from sensor_msgs.msg import Image
-
-from cv_bridge import CvBridge, CvBridgeError
-import cv2
-
-bridge = CvBridge()
+import os,errno
+from geometry_msgs.msg import Twist
 
 
 class Recorder(object):
-    MX_NR_DATA = 1000
+    MX_NR_DATA = 5000
     my_car_pose = ()
     nr_data = 0
     filename = ''
     dist = 0
-    dist_th = 0.1
-    deg_th = 0.1
-    current_image = 0
-    cwd = getcwd()
+    dist_th = 0.05
+    deg_th = 0.05
+    directory = ''
 
-    def __init__(self, filename):
+    def __init__(self,worldname,hz):
 
-        self.filename = "data_" + str(int(filename)) + ".csv" #처음에 Recorder class initiate할 때의 시간이 csv 이름
-        print "data file name : " + self.filename + "\n"
-        image_subscriber = rospy.Subscriber("vehicle/front_camera/image_raw", Image, self.imagecallback)
+        self.directory = os.path.expanduser("~") + "/data"
 
-    def imagecallback(self, data):
-        self.current_image = data #camer image가 들어올때마다 저장
+
+        try:
+            os.makedirs(self.directory)
+        except OSError as exc:
+            if exc.errno == errno.EEXIST and os.path.isdir(self.directory):
+                pass
+            else : raise
+
+        file_number = len(os.listdir(self.directory))
+        self.filename = self.directory + "/data" + str(file_number) + '_' + worldname + '_hz' + str(hz) + ".csv"
 
     def update(self, trackinfo):
+
+        if not trackinfo.my_car.velocity or not trackinfo.my_car.pose: return
 
         if self.my_car_pose: # 새로 들어온 pose와 이전의 pose 비교
             dist_diff = np.linalg.norm(np.subtract(self.my_car_pose, trackinfo.my_car.pose)[0:2])
             deg_diff = np.linalg.norm(np.subtract(self.my_car_pose, trackinfo.my_car.pose)[2:3])
+        else :
+            self.my_car_pose = trackinfo.my_car.pose
+            dist_diff = 0
+            deg_diff = 0
 
-        else:
-            dist_diff = 100
-            deg_diff = 100
-
-        if (dist_diff > self.dist_th or deg_diff > self.deg_th) and (self.nr_data < self.MX_NR_DATA):
+        if (dist_diff > self.dist_th or deg_diff > self.deg_th) and (self.nr_data < self.MX_NR_DATA) and (trackinfo.current_segment is not -1):
             # 일정거리 이상 움직이거나, 일정 각도 이상 움직이고 && 현재 data 수가 maximum data 수를 넘지 않았을 때
 
-            img_filename = 0
-            # if self.current_image != 0:
-            #     cv2_img = bridge.imgmsg_to_cv2(self.current_image, "bgr8")
-            #     img_filename = 'camera_image_' + str(rospy.get_time()) + '.png'
-            #     cv2.imwrite(img_filename, cv2_img) #이미지 저장
-
             with open(self.filename, 'a') as f:
-                data = [trackinfo.my_car.pose, trackinfo.my_car.velocity,
-                        trackinfo.dist2obstacles.left, trackinfo.dist2obstacles.middle, trackinfo.dist2obstacles.right,
-                        trackinfo.deviation, img_filename] #data로 저장할 list
+                velocity = np.linalg.norm([trackinfo.my_car.velocity.linear.x,trackinfo.my_car.velocity.linear.y])
+                # data = [trackinfo.dist2obstacles.left[0],trackinfo.dist2obstacles.left[1],
+                #         trackinfo.dist2obstacles.middle[0], trackinfo.dist2obstacles.middle[1],
+                #         trackinfo.dist2obstacles.right[0], trackinfo.dist2obstacles.right[1],
+                #         trackinfo.deviation[0],trackinfo.deviation[1],trackinfo.heading] #data로 저장할 list
+
+                data = [trackinfo.deviation, trackinfo.steering]
+
+                #TODO control msg도 data로 받아 저장할 수 있도록 하기
+
+
                 writer = csv.writer(f, lineterminator='\n')
                 writer.writerow(data)
 
             self.nr_data += 1
             self.my_car_pose = trackinfo.my_car.pose
             self.dist += dist_diff
+
+    def reset(self):
+
+        file_number = len(os.listdir(self.directory))
+        self.filename = self.directory + "/data_" + str(file_number) + ".csv"
+
+        self.my_car_pose = ()
+        self.nr_data = 0
+        self.dist = 0

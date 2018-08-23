@@ -2,21 +2,15 @@
     x: 57.22
     y: 1.33
     z: 0.3
-    color: red
     yaw: 1.5708
-	  color: red
+    color: red
     pub_tf: true
 
 - mkz:
-    x: 61.0
-    y: 11.0
+    x: 42.01
+    y: -1.59
     z: 0.3
-    color: green
     yaw: 1.5708
-<<<<<<< HEAD
-	  color: green
-    pub_tf: true
-=======
+    model: mkz
+    color: green
     pub_tf: false
->>>>>>> ac51ab551dcb038a82e5821bef6dded2112aea37
-

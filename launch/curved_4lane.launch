@@ -19,14 +19,7 @@
 		<arg name="vehicle_ns" value="vehicle" />
   </include>
 
-  <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
-    <arg name="live" value="false" />
-    <arg name="load_urdf" value="false" />
-    <arg name="can_ns" value="can_bus_dbw" />
-    <arg name="vehicle_ns" value="mkz" />
-  </include>
-
-	<node name="main" pkg="dbw_runner" type="main.py" output="screen"/>
+	<!--node name="main" pkg="dbw_runner" type="main.py" output="screen"/-->
     
 	<arg name="dev" default="/dev/input/js0"/>
 	<node pkg="joy" type="joy_node" name="joy_node" output="screen" >

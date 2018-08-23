@@ -1,7 +1,7 @@
 #Track segment information
 
 sideline: 1.0
-nr_lane: 5
+nr_lane: 6
 lane_width: 5.0
 
 #TODO We can use this file to setup world 

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+  
+  <param name="world" value="straight_2lane"/>
+  <rosparam file="$(find dbw_runner)/yaml/car.yaml" ns="car"/>
+  <rosparam file="$(find dbw_runner)/yaml/track_2lane.yaml" ns="track"/>
+
+
+  <node name="main" pkg="dbw_runner" type="main.py" output="screen"/>
+
+</launch>

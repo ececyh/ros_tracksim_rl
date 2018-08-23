@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.79.0 commit date:2018-03-22, commit time:14:10, hash:f4dc9f9d68b</authoring_tool>
+    </contributor>
+    <created>2018-05-09T03:48:43</created>
+    <modified>2018-05-09T03:48:43</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="skp_camera_Last_Saved_SketchUp_View-camera" name="skp_camera_Last_Saved_SketchUp_View.001">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov sid="xfov">0</xfov>
+            <aspect_ratio>1.777778</aspect_ratio>
+            <znear sid="znear">1</znear>
+            <zfar sid="zfar">1000</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+      <extra>
+        <technique profile="blender">
+          <shiftx sid="shiftx" type="float">0</shiftx>
+          <shifty sid="shifty" type="float">0</shifty>
+          <YF_dofdist sid="YF_dofdist" type="float">0</YF_dofdist>
+        </technique>
+      </extra>
+    </camera>
+  </library_cameras>
+  <library_images>
+    <image id="Blacktop_New_jpg_002" name="Blacktop_New_jpg_002">
+      <init_from>Blacktop_New.jpg</init_from>
+    </image>
+  </library_images>
+  <library_effects>
+    <effect id="Blacktop_New_002-effect">
+      <profile_COMMON>
+        <newparam sid="Blacktop_New_jpg_002-surface">
+          <surface type="2D">
+            <init_from>Blacktop_New_jpg_002</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="Blacktop_New_jpg_002-sampler">
+          <sampler2D>
+            <source>Blacktop_New_jpg_002-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <texture texture="Blacktop_New_jpg_002-sampler"/>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="Color_E05-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">1 1 0 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="Blacktop_New_002-material" name="Blacktop_New_002">
+      <instance_effect url="#Blacktop_New_002-effect"/>
+    </material>
+    <material id="Color_E05-material" name="Color_E05">
+      <instance_effect url="#Color_E05-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="ID4_002-mesh" name="ID4.002">
+      <mesh>
+        <source id="ID4_002-mesh-positions">
+          <float_array id="ID4_002-mesh-positions-array" count="96">196.8504 1968.504 0 0 0 0 0 1968.504 0 196.8504 0 0 0 1968.504 3.937008 196.8504 1968.504 0 0 1968.504 0 196.8504 1968.504 3.937008 36.33858 1968.504 3.937008 44.01575 1968.504 3.937008 196.8504 1968.504 0 196.8504 0 3.937008 196.8504 0 0 196.8504 1968.504 3.937008 196.8504 0 3.937008 0 0 0 196.8504 0 0 0 0 3.937008 44.01575 0 3.937008 36.33858 0 3.937008 0 1968.504 3.937008 0 0 0 0 0 3.937008 0 1968.504 0 196.8504 0 3.937008 44.01575 1968.504 3.937008 44.01575 0 3.937008 196.8504 1968.504 3.937008 36.33858 0 3.937008 0 1968.504 3.937008 0 0 3.937008 36.33858 1968.504 3.937008</float_array>
+          <technique_common>
+            <accessor source="#ID4_002-mesh-positions-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ID4_002-mesh-normals">
+          <float_array id="ID4_002-mesh-normals-array" count="18">0 0 -1 0 1 0 0 0 1 1 0 0 0 -1 0 -1 0 0</float_array>
+          <technique_common>
+            <accessor source="#ID4_002-mesh-normals-array" count="6" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ID4_002-mesh-map-0">
+          <float_array id="ID4_002-mesh-map-0-array" count="108">-16.81486 26.73033 -15.17444 10.32613 -15.17444 26.73033 -15.17444 10.32613 -16.81486 26.73033 -16.81486 10.32613 -15.17444 -0.03280836 -16.81486 -0.06561678 -15.17444 -0.06561678 -16.81486 -0.06561678 -15.17444 -0.03280836 -16.81486 -0.03280836 -16.81486 -0.03280836 -15.17444 -0.03280836 -15.47726 -0.03280836 -16.81486 -0.03280836 -15.47726 -0.03280836 -15.54124 -0.03280836 26.73033 -0.06561678 10.32613 -0.03280836 10.32613 -0.06561678 10.32613 -0.03280836 26.73033 -0.06561678 26.73033 -0.03280836 16.81486 -0.03280836 15.17444 -0.06561678 16.81486 -0.06561678 15.17444 -0.06561678 16.81486 -0.03280836 15.17444 -0.03280836 15.17444 -0.03280836 16.81486 -0.03280836 15.54124 -0.03280836 15.17444 -0.03280836 15.54124 -0.03280836 15.47726 -0.03280836 -26.73033 -0.03280836 -10.32613 -0.06561678 -10.32613 -0.03280836 -10.32613 -0.06561678 -26.73033 -0.03280836 -26.73033 -0.06561678 16.81486 10.32613 15.54124 26.73033 15.54124 10.32613 15.54124 26.73033 16.81486 10.32613 16.81486 26.73033 15.47726 10.32613 15.17444 26.73033 15.17444 10.32613 15.17444 26.73033 15.47726 10.32613 15.47726 26.73033</float_array>
+          <technique_common>
+            <accessor source="#ID4_002-mesh-map-0-array" count="54" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ID4_002-mesh-vertices">
+          <input semantic="POSITION" source="#ID4_002-mesh-positions"/>
+        </vertices>
+        <triangles material="Blacktop_New_002-material" count="18">
+          <input semantic="VERTEX" source="#ID4_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#ID4_002-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#ID4_002-mesh-map-0" offset="2" set="0"/>
+          <p>0 0 0 1 0 1 2 0 2 1 0 3 0 0 4 3 0 5 4 1 6 5 1 7 6 1 8 5 1 9 4 1 10 7 1 11 7 0 12 4 0 13 8 0 14 7 2 15 8 2 16 9 2 17 10 3 18 11 3 19 12 3 20 11 3 21 10 3 22 13 3 23 14 4 24 15 4 25 16 4 26 15 4 27 14 4 28 17 4 29 17 2 30 14 2 31 18 2 32 17 2 33 18 2 34 19 2 35 20 5 36 21 5 37 22 5 38 21 5 39 20 5 40 23 5 41 24 2 42 25 2 43 26 2 44 25 2 45 24 2 46 27 2 47 28 2 48 29 2 49 30 2 50 29 2 51 28 2 52 31 2 53</p>
+        </triangles>
+      </mesh>
+    </geometry>
+    <geometry id="ID17-mesh" name="ID17">
+      <mesh>
+        <source id="ID17-mesh-positions">
+          <float_array id="ID17-mesh-positions-array" count="12">44.01575 0 3.937008 36.33858 1968.504 3.937008 36.33858 0 3.937008 44.01575 1968.504 3.937008</float_array>
+          <technique_common>
+            <accessor source="#ID17-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="ID17-mesh-normals">
+          <float_array id="ID17-mesh-normals-array" count="3">0 0 1</float_array>
+          <technique_common>
+            <accessor source="#ID17-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="ID17-mesh-vertices">
+          <input semantic="POSITION" source="#ID17-mesh-positions"/>
+        </vertices>
+        <triangles material="Color_E05-material" count="2">
+          <input semantic="VERTEX" source="#ID17-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#ID17-mesh-normals" offset="1"/>
+          <p>0 0 1 0 2 0 1 0 0 0 3 0</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="SketchUp" name="SketchUp" type="NODE">
+        <matrix sid="transform">0.0254 0 0 -4.869093 0 0.04 0 -23.62154 0 0 0.0254 0 0 0 0 1</matrix>
+        <node id="skp_camera_Last_Saved_SketchUp_View" name="skp_camera_Last_Saved_SketchUp_View" type="NODE">
+          <matrix sid="transform">0.7848261 -0.2570998 0.5638685 2194.531 0.619716 0.3255986 -0.7140992 -1232.27 -4.0266e-8 0.909882 0.4148672 1510.698 0 0 0 1</matrix>
+          <instance_camera url="#skp_camera_Last_Saved_SketchUp_View-camera"/>
+        </node>
+        <node id="group_0" name="group_0" type="NODE">
+          <matrix sid="transform">1 0 0 57.53955 0 1 0 54.02539 0 0 1 0 0 0 0 1</matrix>
+          <instance_geometry url="#ID4_002-mesh" name="group_0">
+            <bind_material>
+              <technique_common>
+                <instance_material symbol="Blacktop_New_002-material" target="#Blacktop_New_002-material"/>
+              </technique_common>
+            </bind_material>
+          </instance_geometry>
+        </node>
+        <node id="group_0_001" name="group_0_001" type="NODE">
+          <matrix sid="transform">1 0 0 57.53955 0 1 0 54.02539 0 0 1 0 0 0 0 1</matrix>
+          <instance_geometry url="#ID17-mesh" name="group_0_001">
+            <bind_material>
+              <technique_common>
+                <instance_material symbol="Color_E05-material" target="#Color_E05-material"/>
+              </technique_common>
+            </bind_material>
+          </instance_geometry>
+        </node>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

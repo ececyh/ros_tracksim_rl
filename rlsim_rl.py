@@ -1,4 +1,4 @@
-import carsim_env
+import rlsim_env
 
 #import cProfile
 #import re
@@ -317,7 +317,7 @@ def run_policy(env, policy, episodes, evaluation=False): # collect trajectories.
         print "epi : {}, rewards : {}, success : {}".format(e,sum(rewards),any(infos))
     return trajectories
 
-env = carsim_env.make('straight_2lane_disc')
+env = rlsim_env.make('straight_2lane_disc')
 obs_dim = env.observation_space
 act_dim = env.action_space
 

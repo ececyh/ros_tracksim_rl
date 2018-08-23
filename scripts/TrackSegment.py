@@ -20,15 +20,17 @@ class Segment(object):
     lane_pos = []      # list of lines
     boundary = []      # boundary points
     sideline = 1       #
+    reverted = False
 
     # -----------------------------------------
 
-    def __init__(self, Type, Origin, Len):
+    def __init__(self, Type, Origin, Len, Rev = False):
 
         self.segnum = self.numofsegment
         self.numofsegment += 1
         self.type = Type
         self.origin = Origin
+        self.reverted = Rev
         theta = 0
 
         if self.type == 'straight':
@@ -46,18 +48,9 @@ class Segment(object):
             self.endpos = self.elsum(Origin, (self.length * cos(Origin[2]), self.length * sin(Origin[2]), 0), 3)
             theta = self.startpos[2]
 
-        elif self.type == 'curved':
-            a = self.radius + self.sideline + floor(
-                self.nr_lane / 2) * self.lane_width  # 59 = radius 50 + sideline 1 + 2lines 8
-            self.startpos = self.elsum(Origin, [a * cos(Origin[2]), a * sin(Origin[2]), pi / 2], 3)
-            self.endpos = self.elsum(Origin, [a * cos(Origin[2] + pi / 2), a * sin(Origin[2] + pi / 2), pi], 3)
-            theta = self.startpos[2]
-
-
-        if self.type == 'curved' or self.type == 'straight':
             # append all the line to lane_pos
             # 각 line의 시작점과 끝점을 넣는다.
-            b = floor(self.nr_lane / 2) * self.lane_width
+            b = (self.nr_lane / 2) * self.lane_width
             lane1_start = self.elsum(self.startpos, [-b * sin(theta), b * cos(theta), theta], 3)
             lane1_end = self.elsum(self.endpos, [-b * sin(theta), b * cos(theta), theta], 3)
             self.lane_pos.append(lane1_start)
@@ -77,6 +70,39 @@ class Segment(object):
                 self.lane_pos.append(lane_end)
 
                 i += 1
+
+
+        elif self.type == 'curved':
+            a = self.radius
+            self.startpos = self.elsum(Origin, [a * cos(Origin[2]), a * sin(Origin[2]), pi / 2], 3)
+            self.endpos = self.elsum(Origin, [a * cos(Origin[2] + pi / 2), a * sin(Origin[2] + pi / 2), pi], 3)
+            theta1 = self.startpos[2]
+            theta2 = self.endpos[2]
+
+            b = (self.nr_lane / 2) * self.lane_width
+            lane1_start = self.elsum(self.startpos, [-b * sin(theta1), b * cos(theta1), theta1], 3)
+            lane1_end = self.elsum(self.endpos, [-b * sin(theta2), b * cos(theta2), theta2], 3)
+            self.lane_pos.append(lane1_start)
+            self.lane_pos.append(lane1_end)
+
+            i = 1
+            while i < self.nr_lane + 1:
+                p_lane_start = lane1_start
+                p_lane_end = lane1_end
+
+                lane_start = self.elsum(p_lane_start,
+                                        (i * self.lane_width * sin(theta1), -i * self.lane_width * cos(theta1), theta1), 3)
+                lane_end = self.elsum(p_lane_end,
+                                      (i * self.lane_width * sin(theta2), -i * self.lane_width * cos(theta2), theta2), 3)
+
+                self.lane_pos.append(lane_start)
+                self.lane_pos.append(lane_end)
+
+                i += 1
+
+            if self.reverted == True :  self.lane_pos.reverse()
+
+
 
             # set boundary
         self.boundary = []
@@ -119,8 +145,8 @@ class Segment(object):
             i = 0
 
 
-            # innder boundary
-            a = self.radius + self.sideline # inner radius
+            # innder boundary - not include sideline
+            a = self.radius - (self.nr_lane / 2) * self.lane_width # inner radius
             while i <= N:
                 p = self.elsum((self.origin[0], self.origin[1]),
                                (a * cos(theta + delta * i), a * sin(theta + delta * i)), 2)
@@ -137,7 +163,9 @@ class Segment(object):
                 self.boundary.append(p)
                 i -= 1
 
-            self.boundary.append((self.lane_pos[0][0], self.lane_pos[0][1]))
+            p = self.elsum((self.origin[0], self.origin[1]),
+                           (a * cos(theta + delta * 0), a * sin(theta + delta * 0)), 2)
+            self.boundary.append(p)
 
         elif self.type == 'intersection':
             bd_list = [(7.5, 5.5),(5.5, 5.5),(5.5, 7.5),

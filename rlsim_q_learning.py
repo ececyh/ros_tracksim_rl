@@ -1,7 +1,7 @@
 import random
 import numpy as np
 import tensorflow as tf
-import carsim_env
+import rlsim_env
 
 
 from collections import deque
@@ -125,7 +125,7 @@ class SumTree:
 
 class DQNAgent:
     def __init__(self, obs_dim, n_action, seed=0,
-                 discount_factor = 0.99, epsilon_decay = 0.999995, epsilon_min = 0.1,
+                 discount_factor = 0.99, epsilon_decay = 0.9999, epsilon_min = 0.1,
                  learning_rate = 1e-3, # STEP SIZE
                  batch_size = 256, 
                  memory_size = 50000, hidden_unit_size = 64,
@@ -136,7 +136,7 @@ class DQNAgent:
 
         self.discount_factor = discount_factor
         self.learning_rate = learning_rate
-        self.epsilon = 1.0
+        self.epsilon = 0.2
         self.epsilon_decay = epsilon_decay
         self.epsilon_min = epsilon_min
         self.batch_size = batch_size
@@ -339,7 +339,7 @@ class DQNAgent:
         return loss
 
 
-env = carsim_env.make('straight_2lane_obs')
+env = rlsim_env.make('straight_2lane_disc')
 obs_dim = env.observation_space
 act_dim = env.action_space
 
@@ -348,12 +348,12 @@ cur_mode = 'train'
 
 max_t = env.time_limit
 agent = DQNAgent(env.observation_space,env.action_space,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
-                restore=False, net_dir='q_learning_iter_9900.ckpt') # memory_mode='PER',target_mode='DDQN'
+                restore=True, net_dir='q_learning_iter_9900.ckpt') # memory_mode='PER',target_mode='DDQN'
 
 avg_return_list = deque(maxlen=100)
 avg_loss_list = deque(maxlen=100)
 avg_success_list = deque(maxlen=100)
-for i in range(10000):
+for i in range(10000,20000):
     obs = env.reset()
     done = False
     total_reward = 0

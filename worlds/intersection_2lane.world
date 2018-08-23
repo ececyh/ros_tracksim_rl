@@ -70,7 +70,8 @@
           </geometry>
           <material>
             <script>
-              <uri>model://ds_grass_background/materials/scripts/grass_background.material</uri>
+              <uri>model://ds_grass_background/materials/scripts</uri>
+              <uri>model://ds_grass_background/materials/textures</uri>
               <name>GrassBackground</name>
             </script>
           </material>
