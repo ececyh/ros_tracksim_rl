@@ -250,6 +250,7 @@ if __name__ == '__main__':
         if state == RUN :
             printAllInformation(trackinfo, recorder)
             publishMsgInfo(trackinfo)
+            if collision_flag : state = COLLISION
             #recorder.update(trackinfo)  # save data
 
 
