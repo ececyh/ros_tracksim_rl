@@ -10,6 +10,7 @@
     <arg name="use_camera_control" value="false" />
     <arg name="world_name" value="$(find dbw_runner)/worlds/curved_4lane.world" />
     <arg name="sim_param_file" value="$(find dbw_runner)/yaml/curved_4lane.yaml" />
+    <arg name="urdf_file" default="$(find dbw_runner)/urdf/mkz_bumpered.urdf.xacro"/>  
   </include>
   
   <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
