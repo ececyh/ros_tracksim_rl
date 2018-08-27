@@ -282,4 +282,4 @@ class Trackinfo(object):
             elif diff < -np.pi: diff += 2 * np.pi
 
 
-            self.heading = diff
+            self.heading = -diff
