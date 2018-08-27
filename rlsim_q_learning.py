@@ -338,22 +338,37 @@ class DQNAgent:
             
         return loss
 
+def discrete_action(action):
+    steering = action//3
+    accel = action%3
 
-env = rlsim_env.make('straight_2lane_disc')
+    if steering == 0:
+        angle_cmd = -1.0
+    elif steering == 1:
+        angle_cmd = 0.0
+    else:
+        angle_cmd = 1.0
+
+    pedal_cmd = 0.5 if accel==1 else 0
+    break_cmd = 0.5 if accel==2 else 0
+
+    return [angle_cmd,pedal_cmd,break_cmd]
+
+env = rlsim_env.make('straight_4lane')
 obs_dim = env.observation_space
-act_dim = env.action_space
+act_dim = 9 #env.action_space
 
 mode = ['train','test']
 cur_mode = 'train'
 
 max_t = env.time_limit
 agent = DQNAgent(env.observation_space,env.action_space,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
-                restore=True, net_dir='q_learning_iter_9900.ckpt') # memory_mode='PER',target_mode='DDQN'
+                restore=False, net_dir='q_learning_iter_9900.ckpt') # memory_mode='PER',target_mode='DDQN'
 
 avg_return_list = deque(maxlen=100)
 avg_loss_list = deque(maxlen=100)
 avg_success_list = deque(maxlen=100)
-for i in range(10000,20000):
+for i in range(0,10000):
     obs = env.reset()
     done = False
     total_reward = 0
@@ -362,10 +377,13 @@ for i in range(10000,20000):
     for t in range(max_t):
         if cur_mode=='test':
             action = agent.get_max_action(obs)
-            next_obs, reward, done, info = env.step(action)
+            disc_action = discrete_action(action)
+            next_obs, reward, done, info = env.step(disc_action)
         else:
             action = agent.get_action(obs)
-            next_obs, reward, done, info = env.step(action)
+            disc_action = discrete_action(action)
+            next_obs, reward, done, info = env.step(disc_action)
+
             agent.add_experience(obs,action,reward,next_obs,done)
         
             loss = agent.train_model()

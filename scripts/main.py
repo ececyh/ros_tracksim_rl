@@ -101,7 +101,7 @@ if __name__ == '__main__':
 
 
     seg.Segment.nr_lane = rospy.get_param("track/nr_lane", 2)
-    seg.Segment.lane_width = rospy.get_param("track/lane_width", 4.5)
+    seg.Segment.lane_width = rospy.get_param("track/lane_width", 4.0)
     seg.Segment.sideline = rospy.get_param("track/sideline", 1.0)
     worldname = rospy.get_param("world",'curved_2lane')
 

@@ -106,7 +106,7 @@ class straight_4lane_env():
         self.lane_sub = rospy.Subscriber('/vehicle/lane_number',Int32, self.lane_callback)
         self.deviation_sub = rospy.Subscriber('/vehicle/deviation',Float32, self.deviation_callback)
 
-        self.observation_space = 10
+        self.observation_space = 8
         self.action_space = 3
 
         self.time_limit = 100

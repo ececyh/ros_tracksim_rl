@@ -2,6 +2,6 @@
 
 sideline: 1.0
 nr_lane: 4
-lane_width: 5.0
+lane_width: 4.0
 
 #TODO We can use this file to setup world 
