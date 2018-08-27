@@ -283,7 +283,3 @@ class Trackinfo(object):
 
 
             self.heading = -diff
-<<<<<<< HEAD
-
-=======
->>>>>>> e91af4e260aeb0bca272391602c9555d64a32886

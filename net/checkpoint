@@ -1,2 +1,3 @@
-model_checkpoint_path: "q_learning_iter_0.ckpt"
+model_checkpoint_path: "q_learning_iter_100.ckpt"
 all_model_checkpoint_paths: "q_learning_iter_0.ckpt"
+all_model_checkpoint_paths: "q_learning_iter_100.ckpt"
