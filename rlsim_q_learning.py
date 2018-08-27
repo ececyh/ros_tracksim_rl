@@ -136,7 +136,7 @@ class DQNAgent:
 
         self.discount_factor = discount_factor
         self.learning_rate = learning_rate
-        self.epsilon = 0.2
+        self.epsilon = 1.0
         self.epsilon_decay = epsilon_decay
         self.epsilon_min = epsilon_min
         self.batch_size = batch_size
