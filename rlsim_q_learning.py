@@ -13,7 +13,7 @@ np.random.seed(seed)
 random.seed(seed)
 
 class ReplayMemory:
-    def __init__(self, memory_size=10000, per_alpha=0.2, per_beta0=0.4):       
+    def __init__(self, memory_size=100000, per_alpha=0.2, per_beta0=0.4):       
         self.memory = SumTree(capacity=memory_size)
         self.memory_size = memory_size
         self.per_alpha = per_alpha
@@ -125,7 +125,7 @@ class SumTree:
 
 class DQNAgent:
     def __init__(self, obs_dim, n_action, seed=0,
-                 discount_factor = 0.99, epsilon_decay = 0.9999, epsilon_min = 0.1,
+                 discount_factor = 0.99, epsilon_decay = 0.99999, epsilon_min = 0.1,
                  learning_rate = 1e-3, # STEP SIZE
                  batch_size = 256, 
                  memory_size = 50000, hidden_unit_size = 64,
@@ -362,8 +362,8 @@ mode = ['train','test']
 cur_mode = 'train'
 
 max_t = env.time_limit
-agent = DQNAgent(env.observation_space,env.action_space,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
-                restore=False, net_dir='q_learning_iter_9900.ckpt') # memory_mode='PER',target_mode='DDQN'
+agent = DQNAgent(obs_dim,act_dim,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
+                restore=False, net_dir='q_learning_iter_4700.ckpt') # memory_mode='PER',target_mode='DDQN'
 
 avg_return_list = deque(maxlen=100)
 avg_loss_list = deque(maxlen=100)
@@ -379,6 +379,7 @@ for i in range(0,10000):
             action = agent.get_max_action(obs)
             disc_action = discrete_action(action)
             next_obs, reward, done, info = env.step(disc_action)
+            loss = 0
         else:
             action = agent.get_action(obs)
             disc_action = discrete_action(action)

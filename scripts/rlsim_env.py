@@ -925,7 +925,7 @@ class straight_2lane_env():
 
 if __name__ == "__main__":
 
-    env = make("straight_4lane_cam")
+    env = make("straight_4lane")
     env.reset()
 
     env.step([0,1,0])
@@ -933,4 +933,5 @@ if __name__ == "__main__":
     for i in range(10):
         env.render()
         s,r,d,i = env.step([0,1.0,0])
+        print (s)
 
