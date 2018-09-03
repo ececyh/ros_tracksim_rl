@@ -350,7 +350,7 @@ def continuous_action(action):
     if len(action)==1:
         action = action[0]
 
-    angle_cmd = 0.5 #4*(action[0]-0.5)
+    angle_cmd = 4*(action[0]-0.5)
 
     acc = action[1]
 
