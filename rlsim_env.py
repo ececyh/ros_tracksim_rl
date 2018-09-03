@@ -157,7 +157,7 @@ class straight_4lane_env(object):
 
             rospy.sleep(0.2)
             time.sleep(0.2)
-            if check_1 and check_2:
+            if check_1 and check_2 and not self.out_of_lane:
                 x_error = abs(self.init_pose1.position.x - self.feature_state[0])
                 y_error = abs(self.init_pose1.position.y - self.feature_state[1])
                 if x_error + y_error < 0.5:
