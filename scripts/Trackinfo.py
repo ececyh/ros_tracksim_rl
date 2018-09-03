@@ -42,15 +42,18 @@ class Trackinfo(object):
     dist2obstacles = dist2obstacle()
     #-----------------------------------
 
-    def __init__(self):
-        position_subscriber = rospy.Subscriber("gazebo/model_states", ModelStates, self.positioncallback)
-        sensor_subscriber = rospy.Subscriber("vehicle/velodyne_points", PointCloud2, self.sensorcallback)
+    def __init__(self, Isitmaincar = True):
+
+        if Isitmaincar :
+            position_subscriber = rospy.Subscriber("gazebo/model_states", ModelStates, self.positioncallback, queue_size=1, buff_size=2**24)
+            #sensor_subscriber = rospy.Subscriber("vehicle/velodyne_points", PointCloud2, self.sensorcallback)
+
+
+            self.my_car.width = rospy.get_param("/car/width", 3.0)
+            self.my_car.height = rospy.get_param("/car/height", 3.0)
+            self.my_car.mass = rospy.get_param("/car/mass", 3.0)
+
         command_subscriber = rospy.Subscriber('/vehicle/cmd_vel', Twist, self.cmdcallback)
-
-        self.my_car.width = rospy.get_param("/car/width", 3.0)
-        self.my_car.height = rospy.get_param("/car/height", 3.0)
-        self.my_car.mass = rospy.get_param("/car/mass", 3.0)
-
 
     # subscriber callback
     def sensorcallback(self, data): # sensor data가 들어올 때마다 실행
@@ -74,12 +77,14 @@ class Trackinfo(object):
 
         self.my_car.pose = (data.pose[i].position.x + 1.1*np.cos(yaw),
                             data.pose[i].position.y + 1.1*np.sin(yaw), yaw )
-        self.my_car.velocity = data.twist[i]
-        self.current_segment = self.findSegment(self.my_car.pose[0:2])
-        self.lane_number = self.findLane(self.my_car.pose[0:2])
-        self.findSidelines(self.my_car.pose[0:2])
-        self.findDeviation(self.my_car.pose)
-        self.findHeading(self.my_car.pose)
+        self.my_car.velocity = float(np.linalg.norm([data.twist[i].linear.x,data.twist[i].linear.y]))
+
+
+        #self.current_segment = self.findSegment(self.my_car.pose[0:2])
+        #self.lane_number = self.findLane(self.my_car.pose[0:2])
+        #self.findSidelines(self.my_car.pose[0:2])
+        #self.findDeviation(self.my_car.pose)
+        #self.findHeading(self.my_car.pose)
 
     def cmdcallback(self,data):
 
@@ -114,7 +119,7 @@ class Trackinfo(object):
             pose = (p[0] * np.cos(theta) + p[1] * np.cos(theta + np.pi / 2) + self.my_car.pose[0],
                     p[0] * np.sin(theta) + p[1] * np.sin(theta + np.pi / 2) + self.my_car.pose[1])
 
-            lane_num = self.findLane(pose) # pose를 기반으로 이 점이 어느 lane에 있는지 확인
+            lane_num = self.findLane(pose, False) # pose를 기반으로 이 점이 어느 lane에 있는지 확인
             # 장애물이 되는 point들을 분류해서 정리
             if lane_num == self.lane_number - 1:  # left
                 if p[0] >= 0:
@@ -157,18 +162,32 @@ class Trackinfo(object):
         return minD
 
     def findSegment(self, position):
-        # 주어진 position이 몇번째 segment에 있는가.
+        # 원래 있던 seg + 앞 segment에 대해서 확인
+        if self.current_segment is not -1 :
+            for i in range(2):
+                if self.current_segment + i >= len(self.Track) :
+                    seg = self.Track[self.current_segment + i - len(self.Track)]
+                else : seg = self.Track[self.current_segment + i]
+                p = path.Path(seg.boundary)
+                if p.contains_points([position]):
+                    return self.Track.index(seg)
+
+        # 못찾았다면 전체 다 확인
+
         for seg in self.Track:
             p = path.Path(seg.boundary)
             if p.contains_points([position]):
                 return self.Track.index(seg)
 
+        # 그래도 못 찾았다면 -1
         return -1
 
-    def findLane(self, pose):
+    def findLane(self, pose, Isitmycar = True):
         # 주어진 position이 몇번째 lane에 있는가
 
-        seg_idx = self.findSegment(pose)
+        if Isitmycar is False : seg_idx = self.findSegment(pose)
+        else : seg_idx = self.current_segment
+
         if seg_idx == -1:
             return -1
         else:
@@ -192,6 +211,12 @@ class Trackinfo(object):
             devfromline0 = devfromOrigin - (seg.radius - (seg.nr_lane / 2) * seg.lane_width)
             lane_number = int(np.floor_divide(devfromline0, seg.lane_width))
 
+        else :
+            lane_number  = -1
+            print "There's no information about segmet type [", seg.type, "]!"
+            return
+
+
 
         if seg.reverted : return seg.nr_lane - lane_number -1
         return lane_number
@@ -200,7 +225,8 @@ class Trackinfo(object):
     def findSidelines(self, pose):
         # pose를 기준으로 양쪽 line을 찾는다.
 
-        seg_idx = self.findSegment(pose)
+        seg_idx = self.current_segment
+
         if seg_idx == -1:
             self.leftline = [-1, -1]
             self.rightline = [-1, -1]
@@ -208,8 +234,6 @@ class Trackinfo(object):
 
         else:
             seg = self.Track[seg_idx] #pose가 속한 segment
-
-
 
         if self.lane_number >= self.Track[seg_idx].nr_lane :
             print 'out of the track!'
@@ -283,3 +307,5 @@ class Trackinfo(object):
 
 
             self.heading = -diff
+
+
