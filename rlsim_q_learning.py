@@ -3,7 +3,6 @@ import numpy as np
 import tensorflow as tf
 import rlsim_env
 
-
 from collections import deque
 
 from matplotlib import pyplot as plt

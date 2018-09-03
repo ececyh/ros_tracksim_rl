@@ -28,7 +28,7 @@
     <arg name="vehicle_ns" value="mkz" />
   </include>
 
-<node name="main" pkg="dbw_runner" type="main.py" output="screen"/>
+<node name="main" pkg="dbw_runner" type="main.py" output="screen" args="RL"/>
   
 
 <!--

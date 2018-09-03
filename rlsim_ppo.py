@@ -1,8 +1,5 @@
 import rlsim_env
 
-#import cProfile
-#import re
-
 from collections import deque
 
 import numpy as np
@@ -16,7 +13,7 @@ np.random.seed(seed)
 
 class Policy(object):
     def __init__(self, obs_dim, act_dim, clip_range=0.2,
-                 epochs=10, lr=3e-5, hdim=64, max_std=1.0,
+                 epochs=10, lr=3e-5, hdim=64, max_std=0.1,
                  seed=0):
         
         self.seed=0
@@ -44,7 +41,14 @@ class Policy(object):
             self._loss_train_op()
             self.init = tf.global_variables_initializer()
             self.variables = tf.global_variables()
+            self.saver = tf.train.Saver()
             
+    def save_graph(self, i):
+        self.saver.save(self.sess, "./ppo_net/ppo_iter_{}_policy.ckpt".format(i))
+
+    def restore_graph(self, i):
+        self.saver.restore(self.sess, "./ppo_net/ppo_iter_{}_policy.ckpt".format(i))
+
     def _placeholders(self):
         # observations, actions and advantages:
         self.obs_ph = tf.placeholder(tf.float32, (None, self.obs_dim), 'obs')
@@ -67,14 +71,10 @@ class Policy(object):
         out = tf.layers.dense(self.obs_ph, hid1_size, tf.tanh,
                               kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h1")
         out = tf.layers.dense(out, hid2_size, tf.tanh,
-                              kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h2")        
-        self.prob = tf.layers.dense(out, self.act_dim,
-                                kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), 
-                                name="prob")
-        self.sample_action = tf.multinomial(self.prob)
-
+                              kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h2")
+        
         # MEAN FUNCTION
-        self.mean = tf.layers.dense(out, self.act_dim,
+        self.mean = tf.layers.dense(out, self.act_dim,tf.sigmoid,
                                 kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), 
                                 name="mean")
         # UNIT VARIANCE
@@ -83,7 +83,7 @@ class Policy(object):
         
         # SAMPLE OPERATION
         self.sample_action = self.mean + tf.random_normal(tf.shape(self.mean),seed= self.seed)*self.std
-
+        
     def _logprob(self):
         # PROBABILITY WITH TRAINING PARAMETER
         y = self.act_ph 
@@ -214,7 +214,14 @@ class Value(object):
             
             self.init = tf.global_variables_initializer()
             self.variables = tf.global_variables()
+            self.saver = tf.train.Saver()
     
+    def save_graph(self, i):
+        self.saver.save(self.sess, "./ppo_net/ppo_iter_{}_value.ckpt".format(i))
+
+    def restore_graph(self, i):
+        self.saver.restore(self.sess, "./ppo_net/ppo_iter_{}_value.ckpt".format(i))
+
     def _init_session(self):
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
@@ -295,7 +302,7 @@ def run_episode(env, policy, animate=False, evaluation=False): # Run policy and 
         else:
             action = policy.sample(obs).reshape((1, -1)).astype(np.float32)
         actions.append(action)
-        obs, reward, done, info = env.step(action)
+        obs, reward, done, info = env.step(continuous_action(action))
         if not isinstance(reward, float):
             reward = np.asscalar(reward)
         rewards.append(reward)
@@ -303,9 +310,12 @@ def run_episode(env, policy, animate=False, evaluation=False): # Run policy and 
         
     return (np.concatenate(observes), np.concatenate(actions), np.array(rewards, dtype=np.float32), infos)
 
-def run_policy(env, policy, episodes, evaluation=False): # collect trajectories. if 'evaluation' is ture, then only mean value of policy distribution is used without sampling.
+def run_policy(env, policy, episodes, evaluation=False, update=0): # collect trajectories. if 'evaluation' is true, then only mean value of policy distribution is used without sampling.
     total_steps = 0
     trajectories = []
+    total_reward = 0.0
+    total_success = 0.0
+    #total_dist = 0.0
     for e in range(episodes):
         observes, actions, rewards, infos = run_episode(env, policy, evaluation=evaluation)
         total_steps += observes.shape[0]
@@ -314,28 +324,61 @@ def run_policy(env, policy, episodes, evaluation=False): # collect trajectories.
                       'rewards': rewards,
                       'infos': infos}
         trajectories.append(trajectory)
-        print "epi : {}, rewards : {}, success : {}".format(e,sum(rewards),any(infos))
+
+        if (update%10)==0:
+            success = [a for a in infos]
+            total_reward += sum(rewards)
+            total_success += any(success)
+            #total_dist += dist
+            result = "epi : {}, rewards : {:.4}, success : {}".format(e,sum(rewards),any(success))
+            with open("result.txt","a") as text_file:
+                text_file.write(result+"\n")
+            print result
+
+    mean_reward=total_reward/episodes
+    mean_success=total_success/episodes
+    #mean_dist=total_dist/episodes
+    result = "avg {} / rewards : {:.4}, success : {}".format(update,mean_reward,mean_success)
+    with open("result.txt","a") as text_file:
+        text_file.write(result+"\n")
+        print result
+    
     return trajectories
 
-env = rlsim_env.make('straight_2lane_disc')
+def continuous_action(action):
+
+    if len(action)==1:
+        action = action[0]
+
+    angle_cmd = 0.5 #4*(action[0]-0.5)
+
+    acc = action[1]
+
+    pedal_cmd = acc
+    #break_cmd = 2*(0.5-acc) if acc<0.5 else 0
+    break_cmd = 0
+
+    return [angle_cmd,pedal_cmd,break_cmd]
+
+env = rlsim_env.make('straight_4lane')
 obs_dim = env.observation_space
-act_dim = env.action_space
+act_dim = 2 #env.action_space
 
 policy = Policy(obs_dim, act_dim, epochs=50, hdim=64, lr=3e-4, clip_range=0.2,seed=seed)
 val_func = Value(obs_dim, epochs=100, hdim=64, lr=1e-3, seed=seed)
 
-episode_size = 100
+episode_size = 50
+
 batch_size = 64
-nupdates = 1000
+nupdates = 10000
 
 print "start learning"
-env.reset()
-env.step(np.asarray([0,0,1]))
 
-#cProfile.run('re.compile("foo|bar")')
+env.reset()
+
 for update in range(nupdates+1):
 
-    trajectories = run_policy(env, policy, episodes=episode_size)
+    trajectories = run_policy(env, policy, episodes=episode_size, update=update)
 
     add_value(trajectories, val_func)
     add_gae(trajectories)
@@ -345,6 +388,11 @@ for update in range(nupdates+1):
     vf_loss = val_func.fit(observes, returns,batch_size=batch_size)
     
     mean_ret = np.mean([np.sum(t['rewards']) for t in trajectories])
-    if (update%1) == 0:
-        print('[{}/{}] Mean Ret : {:.3f}, Value Loss : {:.3f}, Policy loss : {:.5f}, Policy KL : {:.5f}, Policy Entropy : {:.3f} ***'.format(
-                            update, nupdates, mean_ret, vf_loss, pol_loss, pol_kl, pol_entropy))
+    if (update%10) == 0:
+        result = '[{}/{}] Mean Ret : {:.3f}, Value Loss : {:.3f}, Policy loss : {:.5f}, Policy KL : {:.5f}, Policy Entropy : {:.3f} ***'.format(update, nupdates, mean_ret, vf_loss, pol_loss, pol_kl, pol_entropy)
+        
+        policy.save_graph(update)
+        val_func.save_graph(update)
+        with open("result.txt","a") as text_file:
+            text_file.write(result+"\n")
+            print result

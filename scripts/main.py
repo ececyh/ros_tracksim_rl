@@ -6,12 +6,14 @@ from math import pi
 import Trackinfo
 import TrackSegment as seg
 import Recorder
+import argparse
 from std_msgs.msg import Int32, Float32
 from gazebo_msgs.msg import ContactsState
 from geometry_msgs.msg import Twist
 
 import matplotlib.pyplot as plt
 
+import sys
 
 # state
 RUN = 0
@@ -21,9 +23,8 @@ COLLISION = 3
 
 collision_flag = 0
 
-
-msg_proxy = {'lane_number':rospy.Publisher("vehicle/lane_number",Int32, queue_size=10),
-'deviation':rospy.Publisher("vehicle/deviation",Float32, queue_size=10)}
+msg_proxy = {'lane_number':rospy.Publisher("/vehicle/lane_number",Int32, queue_size=10),
+'deviation':rospy.Publisher("/vehicle/deviation",Float32, queue_size=10)}
 
 def publishMsgInfo(Trackinfo):
     
@@ -53,23 +54,24 @@ def printAllInformation(Trackinfo, Recorder): # 그냥 잘 계산하고 있는�
     #heading = "heading: %.4f radian %.4f degree" % (Trackinfo.heading, Trackinfo.heading*180/pi)
     steering = "steering: %.4f "%(Trackinfo.steering)
 
-    # print position
-    print current_segment
-    print lane_number
-    # print distance
-    print numofdata + '\n'
-    # # print min_dist_obstacle
-    # # print frontback
-    # # print left
-    # # print middle
-    # # print right
-    print deviation
-    #print heading + '\n\n'
+    if mode!='RL':
+        # print position
+        print current_segment
+        print lane_number
+        # print distance
+        print numofdata + '\n'
+        # # print min_dist_obstacle
+        # # print frontback
+        # # print left
+        # # print middle
+        # # print right
+        print deviation
+        #print heading + '\n\n'
 
-    if Trackinfo.deviation*Trackinfo.steering < 0 :
-        print steering +'!!\n\n'
-    else :
-        print steering + '\n\n'
+        if Trackinfo.deviation*Trackinfo.steering < 0 :
+            print steering +'!!\n\n'
+        else :
+            print steering + '\n\n'
 
 
 
@@ -82,13 +84,22 @@ def bumpercallback(data):
 
 if __name__ == '__main__':
 
+    mode = 'RL' if 'RL' in sys.argv[1] else 'IL'
+
+    print("--"*30)
+
     rospy.init_node('track_simulator_main', anonymous=True) # node 시작
 
     CollisionDetecter = rospy.Subscriber('/vehicle/bumper_state',ContactsState, bumpercallback)
 
     listener = tf.TransformListener()
 
-    hz = 2
+    if mode=='RL':
+        hz = 60
+        print("RL-track-sim environment")
+    else:
+        print("Imitation Learning")
+        hz = 2
     rate = rospy.Rate(hz) # hz 1초에 한번
 
     # while not rospy.is_shutdown():
@@ -287,8 +298,11 @@ if __name__ == '__main__':
 
         elif state == COLLISION:
 
-            print "Collision!! Terminate recording."
-            state = RESET
+            if mode=='RL':
+                state = RUN
+            else:
+                print "Collision!! Terminate recording."
+                state = RESET
 
 
         # elif state == RESET:
