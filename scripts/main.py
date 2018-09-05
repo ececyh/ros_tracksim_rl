@@ -283,6 +283,11 @@ if __name__ == '__main__':
 
     while True:
         if state == RUN :
+            trackinfo.current_segment = trackinfo.findSegment(trackinfo.my_car.pose[0:2])
+            trackinfo.lane_number = trackinfo.findLane(trackinfo.my_car.pose[0:2])
+            trackinfo.findSidelines(trackinfo.my_car.pose[0:2])
+            trackinfo.findDeviation(trackinfo.my_car.pose)
+            trackinfo.findHeading(trackinfo.my_car.pose)
             printAllInformation(trackinfo, recorder)
             publishMsgInfo(trackinfo)
             if collision_flag : state = COLLISION
