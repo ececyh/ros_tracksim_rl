@@ -358,11 +358,11 @@ obs_dim = env.observation_space
 act_dim = 9 #env.action_space
 
 mode = ['train','test']
-cur_mode = 'train'
+cur_mode = 'test'
 
 max_t = env.time_limit
 agent = DQNAgent(obs_dim,act_dim,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
-                restore=False, net_dir='q_learning_iter_4700.ckpt') # memory_mode='PER',target_mode='DDQN'
+                restore=True, net_dir='/ddqn_1/q_learning_iter_4700.ckpt') # memory_mode='PER',target_mode='DDQN'
 
 avg_return_list = deque(maxlen=100)
 avg_loss_list = deque(maxlen=100)

@@ -9,7 +9,7 @@ from dbw_mkz_msgs.msg import SteeringCmd, BrakeCmd, GearCmd, ThrottleCmd, TurnSi
 from dbw_mkz_msgs.msg import Gear
 
 from geometry_msgs.msg import Pose
-from gazebo_msgs.srv import SetModelState
+from gazebo_msgs.srv import SetModelState, SpawnModel, DeleteModel
 from gazebo_msgs.msg import ModelState, ModelStates
 from gazebo_msgs.msg import ContactsState
 from sensor_msgs.msg import Image, Imu, CompressedImage
@@ -31,6 +31,12 @@ def make(env_name):
         return straight_4lane_cam_env()
     elif env_name == "straight_4lane_obs_cam":
         return straight_4lane_obs_cam_env()
+
+
+    elif env_name == "straight_4lane_long":
+        return straight_4lane_long_env()
+    elif env_name == "straight_4lane_long_cam":
+        return straight_4lane_long_cam_env()
 
     else:
         return None
@@ -112,6 +118,7 @@ class straight_4lane_env(object):
         self.observation_space = 8
         self.action_space = 3
 
+        self.goal_x = 180
         self.time_limit = 100
         self.time = 0
 
@@ -132,7 +139,7 @@ class straight_4lane_env(object):
         ori = data.pose[idx].orientation
         lin = data.twist[idx].linear
         
-        if (pose.x >180 and not self.out_of_lane) or self.reach_goal:
+        if (pose.x > self.goal_x and not self.out_of_lane) or self.reach_goal:
             self.reach_goal = True
         else:
             self.reach_goal = False
@@ -242,6 +249,7 @@ class straight_4lane_cam_env(straight_4lane_env):
         self.observation_space = (800,800,3)
         self.action_space = 3
 
+        self.goal_x = 180
         self.time_limit = 100
         self.time = 0
 
@@ -260,7 +268,6 @@ class straight_4lane_cam_env(straight_4lane_env):
         cv2.waitKey(1)
 
     def reset(self):
-
         super(straight_4lane_cam_env, self).reset()
 
         cur_img = self.img_state
@@ -282,18 +289,44 @@ class straight_4lane_cam_env(straight_4lane_env):
 
         return next_obsv, reward, done, success
 
+class straight_4lane_long_env(straight_4lane_env):
+    def __init__(self):
+        super(straight_4lane_long_env, self).__init__()
+
+        self.init_pose1.position.x = -400
+        self.init_pose2.position.x = -400
+
+        self.init_state1.pose = self.init_pose1
+        self.init_state2.pose = self.init_pose2
+        self.x_coord = self.init_pose1.position.x
+
+        self.goal_x = 350
+        self.time_limit = 200
+        self.time = 0
+
+class straight_4lane_long_cam_env(straight_4lane_cam_env):
+    def __init__(self):
+        super(straight_4lane_long_cam_env, self).__init__()
+        self.init_pose1.position.x = -400
+        self.init_pose2.position.x = -400
+
+        self.init_state1.pose = self.init_pose1
+        self.init_state2.pose = self.init_pose2
+        self.x_coord = self.init_pose1.position.x
+
+        self.goal_x = 350
+        self.time_limit = 200
+        self.time = 0
 
 if __name__ == "__main__":
 
-    env = make("straight_4lane_cam")
-    env.reset()
+    env = make("straight_4lane_long_cam")
 
-    env.step([0,1,0])
-
-    for t in range(30):
+    for t in range(100):
         env.reset()
-        for i in range(50):
+        for i in range(200):
             env.render()
+            print(i)
             s,r,d,i = env.step([0,1.0,0])
             if d:
                 break

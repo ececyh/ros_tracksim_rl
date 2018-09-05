@@ -367,6 +367,9 @@ act_dim = 2 #env.action_space
 policy = Policy(obs_dim, act_dim, epochs=50, hdim=64, lr=3e-4, clip_range=0.2,seed=seed)
 val_func = Value(obs_dim, epochs=100, hdim=64, lr=1e-3, seed=seed)
 
+policy.restore_graph(0)
+val_func.restore_graph(0)
+
 episode_size = 50
 
 batch_size = 64

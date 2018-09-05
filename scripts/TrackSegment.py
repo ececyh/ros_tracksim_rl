@@ -15,7 +15,7 @@ class Segment(object):
     origin = tuple     # curved인 경우 원의 중심, straight인 경우 startpos와 같다
     radius = float     # type = curved 인 경우 원의 반지름
     length = float     # length of segment
-    lane_width = 4.0   # width of a lane
+    lane_width = [4.35,3.65,4.0,4.0]   # width of a lane
     nr_lane = 4        # number of lanes in the segment
     lane_pos = []      # list of lines
     boundary = []      # boundary points

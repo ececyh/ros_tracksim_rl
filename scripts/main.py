@@ -24,12 +24,14 @@ COLLISION = 3
 collision_flag = 0
 
 msg_proxy = {'lane_number':rospy.Publisher("/vehicle/lane_number",Int32, queue_size=10),
-'deviation':rospy.Publisher("/vehicle/deviation",Float32, queue_size=10)}
+'deviation':rospy.Publisher("/vehicle/deviation",Float32, queue_size=10),
+'segment_number':rospy.Publisher("/vehicle/lane_number",Int32, queue_size=10)}
 
 def publishMsgInfo(Trackinfo):
     
     msg_proxy['lane_number'].publish(Trackinfo.lane_number)
     msg_proxy['deviation'].publish(Trackinfo.deviation)
+    msg_proxy['segment_number'].publish(Trackinfo.current_segment)
 
 
 def printAllInformation(Trackinfo, Recorder): # 그냥 잘 계산하고 있는지 확인하는 함수
@@ -95,7 +97,7 @@ if __name__ == '__main__':
     listener = tf.TransformListener()
 
     if mode=='RL':
-        hz = 60
+        hz = 120
         print("RL-track-sim environment")
     else:
         print("Imitation Learning")
@@ -181,6 +183,28 @@ if __name__ == '__main__':
         Track.append(seg.Segment('straight', (50, 0, 0), 50))
         Track.append(seg.Segment('straight', (100, 0, 0), 50))
         Track.append(seg.Segment('straight', (150, 0, 0), 50))
+
+    elif worldname == 'straight_4lane_long':
+
+        Track.append(seg.Segment('straight', (-450,0,0), 50))
+        Track.append(seg.Segment('straight', (-400,0,0), 50))
+        Track.append(seg.Segment('straight', (-350,0,0), 50))
+        Track.append(seg.Segment('straight', (-300,0,0), 50))
+        Track.append(seg.Segment('straight', (-250,0,0), 50))
+        Track.append(seg.Segment('straight', (-200,0,0), 50))
+        Track.append(seg.Segment('straight', (-150, 0, 0), 50))
+        Track.append(seg.Segment('straight', (-100, 0, 0), 50))
+        Track.append(seg.Segment('straight', (-50, 0, 0), 50))
+
+        Track.append(seg.Segment('straight', (0, 0, 0), 50))
+        Track.append(seg.Segment('straight', (50, 0, 0), 50))
+        Track.append(seg.Segment('straight', (100, 0, 0), 50))
+        Track.append(seg.Segment('straight', (150, 0, 0), 50))
+        Track.append(seg.Segment('straight', (200, 0, 0), 50))
+        Track.append(seg.Segment('straight', (250, 0, 0), 50))
+        Track.append(seg.Segment('straight', (300, 0, 0), 50))
+        Track.append(seg.Segment('straight', (350, 0, 0), 50))
+        Track.append(seg.Segment('straight', (400, 0, 0), 50))
 
     elif worldname == 'curved_4lane':
 
