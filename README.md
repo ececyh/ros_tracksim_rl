@@ -2,11 +2,11 @@
 
 Patch Note
 
-- 2018.9.3
+**2018.9.3**
 1. Fixed a bug where reward did not work properly after reset function.
 2. Make an episode terminate after deviating outer yellow line.
 
-- 2018.9.7
+**2018.9.7**
 1. No need to fix camera setting anymore
 2. environment with obstacles
  - 8 cars on straight 4 lane
