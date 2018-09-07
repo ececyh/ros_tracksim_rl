@@ -1,2 +1,0 @@
-model_checkpoint_path: "ppo_iter_0_value.ckpt"
-all_model_checkpoint_paths: "ppo_iter_0_value.ckpt"

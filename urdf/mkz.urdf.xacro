@@ -7,7 +7,7 @@
   <xacro:include filename="$(find dbw_mkz_description)/urdf/vehicle_gazebo.urdf.xacro" />
 
   <!-- Bolt-on sensors go here -->
-  <xacro:include filename="$(find dbw_mkz_description)/urdf/vehicle_sensors.urdf.xacro" />
+  <xacro:include filename="$(find dbw_runner)/urdf/vehicle_sensors.urdf.xacro" />
   <!--xacro:dbw_mkz_camera name="front_camera" parent_link="base_footprint" x="5.0" y="0" z="1.5" roll="0" pitch="0.6" yaw="0" /-->
   <xacro:dbw_mkz_camera name="front_camera" parent_link="base_footprint" x="5.0" y="0" z="1.5" roll="0" pitch="0.6" yaw="0" />
   <xacro:dbw_mkz_camera name="bird_camera" parent_link="base_footprint" x="-4.0" y="0" z="6.0" roll="0" pitch="0.6" yaw="0" />

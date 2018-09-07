@@ -13,7 +13,7 @@
     <arg name="sim_param_file" value="$(find dbw_runner)/yaml/straight_4lane_rl.yaml" />
 		<arg name="urdf_file" default="$(find dbw_runner)/urdf/mkz_bumpered.urdf.xacro"/>
   </include>
-  
+    
   <include file="$(find dbw_mkz_can)/launch/dbw.launch" >
     <arg name="live" value="false" />
     <arg name="load_urdf" value="false" />
@@ -21,9 +21,13 @@
 		<arg name="vehicle_ns" value="vehicle" />
   </include>
 
+  <node pkg="dbw_mkz_gazebo" type="mkz_spawner" name="mkz_spawner_obs" output="screen" >
+    <param name="sim_param_file" value="$(find dbw_runner)/yaml/straight_4lane_obs_rl.yaml"  />
+    <param name="urdf_file" value="$(find dbw_runner)/urdf/mkz_obs.urdf.xacro" />
+  </node>
+
 <node name="main" pkg="dbw_runner" type="main.py" output="screen" args="RL"/>
   
-
 <!--
 	<arg name="dev" default="/dev/input/js0"/>
 	<node pkg="joy" type="joy_node" name="joy_node" output="screen" >

@@ -83,10 +83,10 @@
       <pose frame=''>-15.3208 -4.27543 0 0 -0 0</pose>
     </model>
     <state world_name='default'>
-      <sim_time>930 908000000</sim_time>
-      <real_time>23 3262442</real_time>
-      <wall_time>1528898327 883040297</wall_time>
-      <iterations>4148</iterations>
+      <sim_time>1006 52000000</sim_time>
+      <real_time>83 601530947</real_time>
+      <wall_time>1536206672 855385051</wall_time>
+      <iterations>75144</iterations>
       <model name='grass_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -98,130 +98,84 @@
         </link>
       </model>
       <model name='house_0'>
-        <pose frame=''>-125 30 0 0 0 0</pose>
+        <pose frame=''>-125 30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>-125 30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>-125 30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
       </model>
       <model name='house_1'>
-        <pose frame=''>-75 -30 0 0 0 0</pose>
+        <pose frame=''>-75 -30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>-75 -30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>-75 -30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
       </model>
       <model name='house_2'>
-        <pose frame=''>-25 30 0 0 0 0</pose>
+        <pose frame=''>-25 30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>-25 30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>-25 30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
       </model>
       <model name='house_3'>
-        <pose frame=''>25 -30 0 0 0 0</pose>
+        <pose frame=''>25 -30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>25 -30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>25 -30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
       </model>
       <model name='house_4'>
-        <pose frame=''>75 30 0 0 0 0</pose>
+        <pose frame=''>75 30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>75 30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>75 30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
       </model>
       <model name='house_5'>
-        <pose frame=''>125 -30 0 0 0 0</pose>
+        <pose frame=''>125 -30 0 0 -0 0</pose>
         <scale>1 1 1</scale>
-        <link name='link_0'>
-          <pose frame=''>75 -30 0 0 0 0</pose>
+        <link name='link'>
+          <pose frame=''>125 -30 0 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
-        <visual name='visual'>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-          <geometry>
-            <mesh>
-              <uri>model://straight_4lane_50m/straight_4lane_50m.dae</uri>
-              <scale>1 1 1</scale>
-            </mesh>
-          </geometry>
-          <cast_shadows>1</cast_shadows>
-          <transparency>0</transparency>
-        </visual>
+      </model>
+      <model name='oak_tree'>
+        <pose frame=''>-77.0498 29.2705 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>-77.0498 29.2705 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='oak_tree_0'>
+        <pose frame=''>73.3112 -31.5179 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>73.3112 -31.5179 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
       </model>
       <model name='straight_4lane_50m'>
         <pose frame=''>25 0 0 0 0 -1.5707</pose>
@@ -309,7 +263,7 @@
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>-184.323 -8.16278 98.6245 -0 1.4218 1.43643</pose>
+        <pose frame=''>-13.4145 -164.805 255.663 0 0.9698 1.48843</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
@@ -321,6 +275,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -341,11 +296,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>-125 30 0 0 -0 0</pose>
     </model>
@@ -356,6 +313,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -376,11 +334,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>-75 -30 0 0 -0 0</pose>
     </model>
@@ -391,6 +351,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -411,11 +372,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>-25 30 0 0 -0 0</pose>
     </model>
@@ -426,6 +389,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -446,11 +410,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>25 -30 0 0 -0 0</pose>
     </model>
@@ -461,6 +427,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -481,11 +448,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>75 30 0 0 -0 0</pose>
     </model>
@@ -496,6 +465,7 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -516,11 +486,13 @@
           <geometry>
             <mesh>
               <uri>model://apartment/meshes/apartment.dae</uri>
+              <scale>1 1 1</scale>
             </mesh>
           </geometry>
         </visual>
         <self_collide>0</self_collide>
         <kinematic>0</kinematic>
+        <gravity>1</gravity>
       </link>
       <pose frame=''>125 -30 0 0 -0 0</pose>
     </model>
@@ -1235,6 +1207,138 @@
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
       <pose frame=''>95.6434 -1.39377 0 0 -0 0</pose>
+    </model>
+    <model name='oak_tree'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='branch'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <submesh>
+                <name>Branch</name>
+              </submesh>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://oak_tree/materials/scripts/</uri>
+              <uri>model://oak_tree/materials/textures/</uri>
+              <name>OakTree/Branch</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='bark'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <submesh>
+                <name>Bark</name>
+              </submesh>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://oak_tree/materials/scripts/</uri>
+              <uri>model://oak_tree/materials/textures/</uri>
+              <name>OakTree/Bark</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>-77.0498 29.2705 0 0 -0 0</pose>
+    </model>
+    <model name='oak_tree_0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='branch'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <submesh>
+                <name>Branch</name>
+              </submesh>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://oak_tree/materials/scripts/</uri>
+              <uri>model://oak_tree/materials/textures/</uri>
+              <name>OakTree/Branch</name>
+            </script>
+          </material>
+        </visual>
+        <visual name='bark'>
+          <geometry>
+            <mesh>
+              <uri>model://oak_tree/meshes/oak_tree.dae</uri>
+              <submesh>
+                <name>Bark</name>
+              </submesh>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>model://oak_tree/materials/scripts/</uri>
+              <uri>model://oak_tree/materials/textures/</uri>
+              <name>OakTree/Bark</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <kinematic>0</kinematic>
+        <gravity>1</gravity>
+      </link>
+      <pose frame=''>73.3112 -31.5179 0 0 -0 0</pose>
     </model>
   </world>
 </sdf>

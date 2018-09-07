@@ -1,0 +1,8 @@
+- vehicle:
+    x: -191.3
+    y: -1.89
+    z: 0.3
+    yaw: 0
+    color: red
+    pub_tf: true
+

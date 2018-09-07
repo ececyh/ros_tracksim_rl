@@ -358,16 +358,16 @@ obs_dim = env.observation_space
 act_dim = 9 #env.action_space
 
 mode = ['train','test']
-cur_mode = 'test'
+cur_mode = 'train'
 
 max_t = env.time_limit
 agent = DQNAgent(obs_dim,act_dim,memory_mode='PER',target_mode='DDQN', policy_mode='argmax',
-                restore=True, net_dir='/ddqn_1/q_learning_iter_4700.ckpt') # memory_mode='PER',target_mode='DDQN'
+                restore=True, net_dir='q_learning2_iter_1000.ckpt') # memory_mode='PER',target_mode='DDQN'
 
 avg_return_list = deque(maxlen=100)
 avg_loss_list = deque(maxlen=100)
 avg_success_list = deque(maxlen=100)
-for i in range(0,10000):
+for i in range(1100,10000):
     obs = env.reset()
     done = False
     total_reward = 0
@@ -402,17 +402,17 @@ for i in range(0,10000):
     if cur_mode != 'test':
         agent.update_target()
         if (i%100)==0:
-            agent.saver.save(agent.sess, "./net/q_learning_iter_{}.ckpt".format(i))
+            agent.saver.save(agent.sess, "./net/q_learning2_iter_{}.ckpt".format(i))
 
     avg_return_list.append(total_reward)
     avg_loss_list.append(total_loss)
     avg_success_list.append(total_success)
     
-    if (i > 100 and np.mean(avg_success_list) > 0.95):
+    if (i > 100 and np.mean(avg_success_list) > 1):
         print('{} loss : {:.3f}, return : {:.3f}, success : {:.3f}, eps : {:.3f}'.format(i, np.mean(avg_loss_list), np.mean(avg_return_list), np.mean(avg_success_list), agent.epsilon))
         print('The problem is solved with {} episodes'.format(i))
         if cur_mode != 'test':
-            agent.saver.save(agent.sess, "./q_learning_iter_{}.ckpt".format(i))
+            agent.saver.save(agent.sess, "./net/q_learning2_iter_{}.ckpt".format(i))
         break
     
     if (i%100)==0:
