@@ -22,7 +22,7 @@ Patch Note
  - import rlsim_env
  - rlsim_env.make("straight_4lane") or rlsim_env.make("straight_4lane_cam")
  - observation : 8 dim (pose, velocity, direction) or (800,800,120) dim (4 stacked rgb)
- - action : steering (-8.0~8.0), accel (0.0~1.0), brake (0.0~1.0)
+ - action : steering (-8.0 ~ 8.0), accel (0.0 ~ 1.0), brake (0.0 ~ 1.0)
  - reward : 0.1 * movement + 10 * reach_goal - 5 * out_of_lane - 1 * deviation
 
 2. straight_4lane with obstacles
@@ -30,5 +30,5 @@ Patch Note
  - import rlsim_env
  - rlsim_env.make("straight_4lane_obs") or rlsim_env.make("straight_4lane_obs_cam")
  - observation : 8+16 dim (car state + relative pos to other cars) or (800,800,120) dim (4 stacked rgb)
- - action : steering (-8.0~8.0), accel (0.0~1.0), brake (0.0~1.0)
+ - action : steering (-8.0 ~ 8.0), accel (0.0 ~ 1.0), brake (0.0 ~ 1.0)
  - reward : 0.1 * movement + 10 * reach_goal - 5 * out_of_lane - 1 * deviation - 5 * collision - 1 * repulsive
