@@ -50,7 +50,8 @@ class straight_4lane_env(object):
         #self.initial_model_state = None
         rospy.wait_for_service("/gazebo/set_model_state")
 
-        self.set_state_proxy = rospy.ServiceProxy("/gazebo/set_model_state",SetModelState)
+        self.set_state_pub = rospy.Publisher("/gazebo/set_model_state", ModelState, queue_size=10)
+        #self.set_state_proxy = rospy.ServiceProxy("/gazebo/set_model_state",SetModelState)
 
         self.car_name = "vehicle"
 
@@ -142,11 +143,11 @@ class straight_4lane_env(object):
                 self.set_state_proxy(obj_state)
         '''
         while(True):
-            check = self.set_state_proxy(self.init_state)
-
+            self.set_state_pub.publish(self.init_state)
             rospy.sleep(0.01)
             time.sleep(0.01)
-            if check and not self.out_of_lane:
+
+            if not self.out_of_lane:
                 x_error = abs(self.init_pose.position.x - self.feature_state[0])
                 y_error = abs(self.init_pose.position.y - self.feature_state[1])
                 if x_error + y_error < 0.5:
@@ -377,10 +378,7 @@ class straight_4lane_obs_env(straight_4lane_env):
                 #self.obs_list[n]['init_x'] = x
                 #self.obs_list[n]['init_y'] = y
 
-                try:
-                    self.set_state_proxy(model_state)
-                except:
-                    continue
+                self.set_state_pub.publish(model_state)
                 
             else:
                 model_state = ModelState()
@@ -393,10 +391,8 @@ class straight_4lane_obs_env(straight_4lane_env):
                 model_state.twist.linear.x = random.uniform(5.0,6.0)
 
                 #self.obs_list[n]['init_x'] = x
-                try:
-                    self.set_state_proxy(model_state)
-                except:
-                    continue
+
+                self.set_state_pub.publish(model_state)
                 
         threading.Timer(0.1,self.obs_control_thread).start()
 
@@ -432,25 +428,26 @@ class straight_4lane_obs_env(straight_4lane_env):
             self.obs_list[n]['init_y'] = y
 
             while(True):
-                check = self.set_state_proxy(model_state)
-
+                self.set_state_pub.publish(model_state)
                 rospy.sleep(0.01)
-                if check:
-                    obs_x = self.feature_state[8 + 2*n] + self.feature_state[0]
-                    obs_y = self.feature_state[8 + 2*n+1] + self.feature_state[1]
+                time.sleep(0.01)
 
-                    x_error = abs(x - obs_x)
-                    y_error = abs(y - obs_y)
-                    if x_error + y_error < 0.5:
-                        break
+                obs_x = self.feature_state[8 + 2*n] + self.feature_state[0]
+                obs_y = self.feature_state[8 + 2*n+1] + self.feature_state[1]
+
+                x_error = abs(x - obs_x)
+                y_error = abs(y - obs_y)
+                if x_error + y_error < 0.5:
+                    break
 
         self.init_pose.position.y = -7.5 + 5 * random.randrange(4)
 
         while(True):
-            check = self.set_state_proxy(self.init_state)
-
+            self.set_state_pub.publish(self.init_state)
             rospy.sleep(0.01)
-            if check and not self.out_of_lane:
+            time.sleep(0.01)
+
+            if not self.out_of_lane:
                 x_error = abs(self.init_pose.position.x - self.feature_state[0])
                 y_error = abs(self.init_pose.position.y - self.feature_state[1])
                 if x_error + y_error < 0.5:

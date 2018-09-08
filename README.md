@@ -12,8 +12,9 @@ Patch Note
  - 8 cars on straight 4 lane
  - reward : previous reward + collsion reward + repulsive reward
 
-
-
+**2018.9.8**
+1. fix a bug of reset function
+ - it will not stop the code
 
 ### How to use the environment
 
