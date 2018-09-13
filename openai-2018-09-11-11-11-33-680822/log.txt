@@ -1,0 +1,1513 @@
+L o g g i n g   t o   . / o p e n a i - 2 0 1 8 - 0 9 - 1 1 - 1 1 - 1 1 - 3 3 - 6 8 0 8 2 2
+--------------------------------------
+| % time spent exploring  | 99       |
+| Collision rate          | 0        |
+| Success rate            | 0        |
+| episodes                | 2        |
+| mean 100 episode reward | -63.5    |
+| steps                   | 44       |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 99       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 3        |
+| mean 100 episode reward | -41.5    |
+| steps                   | 55       |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 99       |
+| Collision rate          | 0.333    |
+| Success rate            | 0        |
+| episodes                | 4        |
+| mean 100 episode reward | -39.1    |
+| steps                   | 90       |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 98       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 5        |
+| mean 100 episode reward | -37.5    |
+| steps                   | 124      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 98       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 6        |
+| mean 100 episode reward | -33.5    |
+| steps                   | 140      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 98       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 7        |
+| mean 100 episode reward | -33.9    |
+| steps                   | 198      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 97       |
+| Collision rate          | 0.429    |
+| Success rate            | 0        |
+| episodes                | 8        |
+| mean 100 episode reward | -32.9    |
+| steps                   | 230      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 97       |
+| Collision rate          | 0.375    |
+| Success rate            | 0        |
+| episodes                | 9        |
+| mean 100 episode reward | -31.9    |
+| steps                   | 245      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 97       |
+| Collision rate          | 0.333    |
+| Success rate            | 0        |
+| episodes                | 10       |
+| mean 100 episode reward | -33      |
+| steps                   | 273      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 96       |
+| Collision rate          | 0.4      |
+| Success rate            | 0        |
+| episodes                | 11       |
+| mean 100 episode reward | -37.5    |
+| steps                   | 368      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 96       |
+| Collision rate          | 0.455    |
+| Success rate            | 0        |
+| episodes                | 12       |
+| mean 100 episode reward | -35.9    |
+| steps                   | 380      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 96       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 13       |
+| mean 100 episode reward | -34.5    |
+| steps                   | 419      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.462    |
+| Success rate            | 0        |
+| episodes                | 14       |
+| mean 100 episode reward | -33.5    |
+| steps                   | 456      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 15       |
+| mean 100 episode reward | -32.4    |
+| steps                   | 468      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.533    |
+| Success rate            | 0        |
+| episodes                | 16       |
+| mean 100 episode reward | -31.7    |
+| steps                   | 485      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 17       |
+| mean 100 episode reward | -31.6    |
+| steps                   | 515      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.529    |
+| Success rate            | 0        |
+| episodes                | 18       |
+| mean 100 episode reward | -31      |
+| steps                   | 527      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 95       |
+| Collision rate          | 0.556    |
+| Success rate            | 0        |
+| episodes                | 19       |
+| mean 100 episode reward | -30.2    |
+| steps                   | 547      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 94       |
+| Collision rate          | 0.579    |
+| Success rate            | 0        |
+| episodes                | 20       |
+| mean 100 episode reward | -31.3    |
+| steps                   | 605      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 93       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 21       |
+| mean 100 episode reward | -35.4    |
+| steps                   | 681      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 93       |
+| Collision rate          | 0.619    |
+| Success rate            | 0        |
+| episodes                | 22       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 725      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 92       |
+| Collision rate          | 0.636    |
+| Success rate            | 0        |
+| episodes                | 23       |
+| mean 100 episode reward | -40.7    |
+| steps                   | 824      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 92       |
+| Collision rate          | 0.652    |
+| Success rate            | 0        |
+| episodes                | 24       |
+| mean 100 episode reward | -39.8    |
+| steps                   | 852      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 91       |
+| Collision rate          | 0.625    |
+| Success rate            | 0        |
+| episodes                | 25       |
+| mean 100 episode reward | -40.1    |
+| steps                   | 894      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 91       |
+| Collision rate          | 0.64     |
+| Success rate            | 0        |
+| episodes                | 26       |
+| mean 100 episode reward | -40.7    |
+| steps                   | 968      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 91       |
+| Collision rate          | 0.654    |
+| Success rate            | 0        |
+| episodes                | 27       |
+| mean 100 episode reward | -40      |
+| steps                   | 996      |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 90       |
+| Collision rate          | 0.63     |
+| Success rate            | 0        |
+| episodes                | 28       |
+| mean 100 episode reward | -39.8    |
+| steps                   | 1026     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 90       |
+| Collision rate          | 0.607    |
+| Success rate            | 0        |
+| episodes                | 29       |
+| mean 100 episode reward | -40.4    |
+| steps                   | 1105     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 89       |
+| Collision rate          | 0.621    |
+| Success rate            | 0        |
+| episodes                | 30       |
+| mean 100 episode reward | -42.6    |
+| steps                   | 1187     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 89       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 31       |
+| mean 100 episode reward | -42.5    |
+| steps                   | 1217     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 88       |
+| Collision rate          | 0.581    |
+| Success rate            | 0        |
+| episodes                | 32       |
+| mean 100 episode reward | -41.8    |
+| steps                   | 1241     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 88       |
+| Collision rate          | 0.594    |
+| Success rate            | 0        |
+| episodes                | 33       |
+| mean 100 episode reward | -41.1    |
+| steps                   | 1253     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 88       |
+| Collision rate          | 0.606    |
+| Success rate            | 0        |
+| episodes                | 34       |
+| mean 100 episode reward | -41.1    |
+| steps                   | 1282     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 88       |
+| Collision rate          | 0.618    |
+| Success rate            | 0        |
+| episodes                | 35       |
+| mean 100 episode reward | -40.4    |
+| steps                   | 1296     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 88       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 36       |
+| mean 100 episode reward | -40.1    |
+| steps                   | 1315     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 87       |
+| Collision rate          | 0.611    |
+| Success rate            | 0        |
+| episodes                | 37       |
+| mean 100 episode reward | -39.8    |
+| steps                   | 1343     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 87       |
+| Collision rate          | 0.595    |
+| Success rate            | 0        |
+| episodes                | 38       |
+| mean 100 episode reward | -39.6    |
+| steps                   | 1371     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 87       |
+| Collision rate          | 0.605    |
+| Success rate            | 0        |
+| episodes                | 39       |
+| mean 100 episode reward | -39.1    |
+| steps                   | 1385     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 87       |
+| Collision rate          | 0.615    |
+| Success rate            | 0        |
+| episodes                | 40       |
+| mean 100 episode reward | -38.6    |
+| steps                   | 1399     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 87       |
+| Collision rate          | 0.625    |
+| Success rate            | 0        |
+| episodes                | 41       |
+| mean 100 episode reward | -38.6    |
+| steps                   | 1436     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 86       |
+| Collision rate          | 0.634    |
+| Success rate            | 0        |
+| episodes                | 42       |
+| mean 100 episode reward | -39.6    |
+| steps                   | 1514     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 86       |
+| Collision rate          | 0.619    |
+| Success rate            | 0        |
+| episodes                | 43       |
+| mean 100 episode reward | -39.6    |
+| steps                   | 1554     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 85       |
+| Collision rate          | 0.605    |
+| Success rate            | 0        |
+| episodes                | 44       |
+| mean 100 episode reward | -39.3    |
+| steps                   | 1571     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 85       |
+| Collision rate          | 0.614    |
+| Success rate            | 0        |
+| episodes                | 45       |
+| mean 100 episode reward | -38.9    |
+| steps                   | 1586     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 85       |
+| Collision rate          | 0.622    |
+| Success rate            | 0        |
+| episodes                | 46       |
+| mean 100 episode reward | -38.5    |
+| steps                   | 1598     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 85       |
+| Collision rate          | 0.63     |
+| Success rate            | 0        |
+| episodes                | 47       |
+| mean 100 episode reward | -38.2    |
+| steps                   | 1632     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 85       |
+| Collision rate          | 0.638    |
+| Success rate            | 0        |
+| episodes                | 48       |
+| mean 100 episode reward | -38      |
+| steps                   | 1663     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 84       |
+| Collision rate          | 0.646    |
+| Success rate            | 0        |
+| episodes                | 49       |
+| mean 100 episode reward | -37.7    |
+| steps                   | 1682     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 84       |
+| Collision rate          | 0.633    |
+| Success rate            | 0        |
+| episodes                | 50       |
+| mean 100 episode reward | -37.4    |
+| steps                   | 1694     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 84       |
+| Collision rate          | 0.64     |
+| Success rate            | 0        |
+| episodes                | 51       |
+| mean 100 episode reward | -37      |
+| steps                   | 1729     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 84       |
+| Collision rate          | 0.647    |
+| Success rate            | 0        |
+| episodes                | 52       |
+| mean 100 episode reward | -36.7    |
+| steps                   | 1761     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 84       |
+| Collision rate          | 0.635    |
+| Success rate            | 0        |
+| episodes                | 53       |
+| mean 100 episode reward | -36.5    |
+| steps                   | 1774     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 83       |
+| Collision rate          | 0.642    |
+| Success rate            | 0        |
+| episodes                | 54       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 1788     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 83       |
+| Collision rate          | 0.63     |
+| Success rate            | 0        |
+| episodes                | 55       |
+| mean 100 episode reward | -36      |
+| steps                   | 1802     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 83       |
+| Collision rate          | 0.636    |
+| Success rate            | 0        |
+| episodes                | 56       |
+| mean 100 episode reward | -35.9    |
+| steps                   | 1827     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 82       |
+| Collision rate          | 0.643    |
+| Success rate            | 0        |
+| episodes                | 57       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 1905     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 82       |
+| Collision rate          | 0.632    |
+| Success rate            | 0        |
+| episodes                | 58       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 1958     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 81       |
+| Collision rate          | 0.621    |
+| Success rate            | 0        |
+| episodes                | 59       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 2007     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 81       |
+| Collision rate          | 0.61     |
+| Success rate            | 0        |
+| episodes                | 60       |
+| mean 100 episode reward | -35.9    |
+| steps                   | 2036     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 81       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 61       |
+| mean 100 episode reward | -35.6    |
+| steps                   | 2050     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 81       |
+| Collision rate          | 0.59     |
+| Success rate            | 0        |
+| episodes                | 62       |
+| mean 100 episode reward | -35.7    |
+| steps                   | 2111     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 80       |
+| Collision rate          | 0.597    |
+| Success rate            | 0        |
+| episodes                | 63       |
+| mean 100 episode reward | -35.4    |
+| steps                   | 2134     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 80       |
+| Collision rate          | 0.587    |
+| Success rate            | 0        |
+| episodes                | 64       |
+| mean 100 episode reward | -36      |
+| steps                   | 2188     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 80       |
+| Collision rate          | 0.594    |
+| Success rate            | 0        |
+| episodes                | 65       |
+| mean 100 episode reward | -35.7    |
+| steps                   | 2215     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 79       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 66       |
+| mean 100 episode reward | -35.5    |
+| steps                   | 2226     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 79       |
+| Collision rate          | 0.606    |
+| Success rate            | 0        |
+| episodes                | 67       |
+| mean 100 episode reward | -36.6    |
+| steps                   | 2303     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 78       |
+| Collision rate          | 0.597    |
+| Success rate            | 0        |
+| episodes                | 68       |
+| mean 100 episode reward | -36.5    |
+| steps                   | 2344     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 78       |
+| Collision rate          | 0.603    |
+| Success rate            | 0        |
+| episodes                | 69       |
+| mean 100 episode reward | -36.3    |
+| steps                   | 2390     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 78       |
+| Collision rate          | 0.609    |
+| Success rate            | 0        |
+| episodes                | 70       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 2411     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 77       |
+| Collision rate          | 0.614    |
+| Success rate            | 0        |
+| episodes                | 71       |
+| mean 100 episode reward | -36.3    |
+| steps                   | 2452     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 77       |
+| Collision rate          | 0.606    |
+| Success rate            | 0        |
+| episodes                | 72       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 2466     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 77       |
+| Collision rate          | 0.597    |
+| Success rate            | 0        |
+| episodes                | 73       |
+| mean 100 episode reward | -36      |
+| steps                   | 2483     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 77       |
+| Collision rate          | 0.603    |
+| Success rate            | 0        |
+| episodes                | 74       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 2542     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 76       |
+| Collision rate          | 0.608    |
+| Success rate            | 0        |
+| episodes                | 75       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 2568     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 76       |
+| Collision rate          | 0.6      |
+| Success rate            | 0        |
+| episodes                | 76       |
+| mean 100 episode reward | -36.4    |
+| steps                   | 2609     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 76       |
+| Collision rate          | 0.592    |
+| Success rate            | 0        |
+| episodes                | 77       |
+| mean 100 episode reward | -36.3    |
+| steps                   | 2625     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 75       |
+| Collision rate          | 0.597    |
+| Success rate            | 0        |
+| episodes                | 78       |
+| mean 100 episode reward | -36.6    |
+| steps                   | 2686     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 75       |
+| Collision rate          | 0.59     |
+| Success rate            | 0        |
+| episodes                | 79       |
+| mean 100 episode reward | -36.6    |
+| steps                   | 2708     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 75       |
+| Collision rate          | 0.582    |
+| Success rate            | 0        |
+| episodes                | 80       |
+| mean 100 episode reward | -36.4    |
+| steps                   | 2720     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 75       |
+| Collision rate          | 0.588    |
+| Success rate            | 0        |
+| episodes                | 81       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 2741     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 74       |
+| Collision rate          | 0.58     |
+| Success rate            | 0        |
+| episodes                | 82       |
+| mean 100 episode reward | -36.3    |
+| steps                   | 2817     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 74       |
+| Collision rate          | 0.585    |
+| Success rate            | 0        |
+| episodes                | 83       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 2829     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 74       |
+| Collision rate          | 0.59     |
+| Success rate            | 0        |
+| episodes                | 84       |
+| mean 100 episode reward | -36      |
+| steps                   | 2842     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 74       |
+| Collision rate          | 0.583    |
+| Success rate            | 0        |
+| episodes                | 85       |
+| mean 100 episode reward | -35.9    |
+| steps                   | 2864     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 73       |
+| Collision rate          | 0.576    |
+| Success rate            | 0        |
+| episodes                | 86       |
+| mean 100 episode reward | -36.9    |
+| steps                   | 2964     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 73       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 87       |
+| mean 100 episode reward | -37      |
+| steps                   | 2996     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 72       |
+| Collision rate          | 0.563    |
+| Success rate            | 0        |
+| episodes                | 88       |
+| mean 100 episode reward | -36.9    |
+| steps                   | 3010     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 72       |
+| Collision rate          | 0.568    |
+| Success rate            | 0        |
+| episodes                | 89       |
+| mean 100 episode reward | -36.7    |
+| steps                   | 3025     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 72       |
+| Collision rate          | 0.562    |
+| Success rate            | 0        |
+| episodes                | 90       |
+| mean 100 episode reward | -37.2    |
+| steps                   | 3100     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 71       |
+| Collision rate          | 0.567    |
+| Success rate            | 0        |
+| episodes                | 91       |
+| mean 100 episode reward | -37      |
+| steps                   | 3140     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 71       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 92       |
+| mean 100 episode reward | -37.1    |
+| steps                   | 3194     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 71       |
+| Collision rate          | 0.565    |
+| Success rate            | 0        |
+| episodes                | 93       |
+| mean 100 episode reward | -36.9    |
+| steps                   | 3211     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 94       |
+| mean 100 episode reward | -36.7    |
+| steps                   | 3225     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.574    |
+| Success rate            | 0        |
+| episodes                | 95       |
+| mean 100 episode reward | -36.5    |
+| steps                   | 3247     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.579    |
+| Success rate            | 0        |
+| episodes                | 96       |
+| mean 100 episode reward | -36.4    |
+| steps                   | 3263     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.573    |
+| Success rate            | 0        |
+| episodes                | 97       |
+| mean 100 episode reward | -36.2    |
+| steps                   | 3279     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.567    |
+| Success rate            | 0        |
+| episodes                | 98       |
+| mean 100 episode reward | -36.1    |
+| steps                   | 3292     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.561    |
+| Success rate            | 0        |
+| episodes                | 99       |
+| mean 100 episode reward | -36      |
+| steps                   | 3307     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 70       |
+| Collision rate          | 0.566    |
+| Success rate            | 0        |
+| episodes                | 100      |
+| mean 100 episode reward | -36      |
+| steps                   | 3329     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 69       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 101      |
+| mean 100 episode reward | -35.8    |
+| steps                   | 3366     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 69       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 102      |
+| mean 100 episode reward | -36      |
+| steps                   | 3435     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 68       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 103      |
+| mean 100 episode reward | -36.4    |
+| steps                   | 3464     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 68       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 104      |
+| mean 100 episode reward | -36.3    |
+| steps                   | 3493     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 68       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 105      |
+| mean 100 episode reward | -36.2    |
+| steps                   | 3514     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 68       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 106      |
+| mean 100 episode reward | -36.3    |
+| steps                   | 3535     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 68       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 107      |
+| mean 100 episode reward | -36.2    |
+| steps                   | 3545     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 67       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 108      |
+| mean 100 episode reward | -36.1    |
+| steps                   | 3562     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 67       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 109      |
+| mean 100 episode reward | -36.2    |
+| steps                   | 3614     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 67       |
+| Collision rate          | 0.57     |
+| Success rate            | 0        |
+| episodes                | 110      |
+| mean 100 episode reward | -36      |
+| steps                   | 3633     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 67       |
+| Collision rate          | 0.56     |
+| Success rate            | 0        |
+| episodes                | 111      |
+| mean 100 episode reward | -35.5    |
+| steps                   | 3654     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 66       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 112      |
+| mean 100 episode reward | -35.6    |
+| steps                   | 3672     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 66       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 113      |
+| mean 100 episode reward | -35.7    |
+| steps                   | 3711     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 66       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 114      |
+| mean 100 episode reward | -35.7    |
+| steps                   | 3743     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 65       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 115      |
+| mean 100 episode reward | -35.8    |
+| steps                   | 3778     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 65       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 116      |
+| mean 100 episode reward | -35.8    |
+| steps                   | 3790     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 65       |
+| Collision rate          | 0.55     |
+| Success rate            | 0        |
+| episodes                | 117      |
+| mean 100 episode reward | -36      |
+| steps                   | 3851     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 65       |
+| Collision rate          | 0.54     |
+| Success rate            | 0        |
+| episodes                | 118      |
+| mean 100 episode reward | -36.1    |
+| steps                   | 3877     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 64       |
+| Collision rate          | 0.53     |
+| Success rate            | 0        |
+| episodes                | 119      |
+| mean 100 episode reward | -36.2    |
+| steps                   | 3897     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 64       |
+| Collision rate          | 0.52     |
+| Success rate            | 0        |
+| episodes                | 120      |
+| mean 100 episode reward | -36      |
+| steps                   | 3929     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 64       |
+| Collision rate          | 0.51     |
+| Success rate            | 0        |
+| episodes                | 121      |
+| mean 100 episode reward | -35.1    |
+| steps                   | 3948     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 64       |
+| Collision rate          | 0.51     |
+| Success rate            | 0        |
+| episodes                | 122      |
+| mean 100 episode reward | -34.8    |
+| steps                   | 3964     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 63       |
+| Collision rate          | 0.51     |
+| Success rate            | 0        |
+| episodes                | 123      |
+| mean 100 episode reward | -33.7    |
+| steps                   | 4004     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 63       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 124      |
+| mean 100 episode reward | -33.7    |
+| steps                   | 4030     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 63       |
+| Collision rate          | 0.51     |
+| Success rate            | 0        |
+| episodes                | 125      |
+| mean 100 episode reward | -33.5    |
+| steps                   | 4040     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 63       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 126      |
+| mean 100 episode reward | -33.2    |
+| steps                   | 4055     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 63       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 127      |
+| mean 100 episode reward | -33.4    |
+| steps                   | 4096     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 62       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 128      |
+| mean 100 episode reward | -33.3    |
+| steps                   | 4115     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 62       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 129      |
+| mean 100 episode reward | -33      |
+| steps                   | 4132     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 62       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 130      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4157     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 62       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 131      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4199     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 62       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 132      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4211     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 61       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 133      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4226     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 61       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 134      |
+| mean 100 episode reward | -32.1    |
+| steps                   | 4245     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 61       |
+| Collision rate          | 0.47     |
+| Success rate            | 0        |
+| episodes                | 135      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4260     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 60       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 136      |
+| mean 100 episode reward | -32.6    |
+| steps                   | 4337     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 60       |
+| Collision rate          | 0.47     |
+| Success rate            | 0        |
+| episodes                | 137      |
+| mean 100 episode reward | -32.6    |
+| steps                   | 4376     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 60       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 138      |
+| mean 100 episode reward | -32.5    |
+| steps                   | 4384     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 60       |
+| Collision rate          | 0.47     |
+| Success rate            | 0        |
+| episodes                | 139      |
+| mean 100 episode reward | -32.5    |
+| steps                   | 4406     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 60       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 140      |
+| mean 100 episode reward | -32.5    |
+| steps                   | 4437     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 59       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 141      |
+| mean 100 episode reward | -32.4    |
+| steps                   | 4489     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 59       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 142      |
+| mean 100 episode reward | -31.9    |
+| steps                   | 4545     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 58       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 143      |
+| mean 100 episode reward | -31.7    |
+| steps                   | 4576     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 58       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 144      |
+| mean 100 episode reward | -31.8    |
+| steps                   | 4606     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 57       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 145      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4678     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 57       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 146      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4687     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 57       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 147      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4718     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 57       |
+| Collision rate          | 0.43     |
+| Success rate            | 0        |
+| episodes                | 148      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 4763     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 56       |
+| Collision rate          | 0.43     |
+| Success rate            | 0        |
+| episodes                | 149      |
+| mean 100 episode reward | -32.1    |
+| steps                   | 4781     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 56       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 150      |
+| mean 100 episode reward | -32.1    |
+| steps                   | 4796     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 56       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 151      |
+| mean 100 episode reward | -32.8    |
+| steps                   | 4880     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.43     |
+| Success rate            | 0        |
+| episodes                | 152      |
+| mean 100 episode reward | -32.9    |
+| steps                   | 4895     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 153      |
+| mean 100 episode reward | -32.8    |
+| steps                   | 4914     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 154      |
+| mean 100 episode reward | -32.9    |
+| steps                   | 4937     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 155      |
+| mean 100 episode reward | -32.9    |
+| steps                   | 4954     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 156      |
+| mean 100 episode reward | -32.8    |
+| steps                   | 4967     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 55       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 157      |
+| mean 100 episode reward | -32.4    |
+| steps                   | 4977     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 54       |
+| Collision rate          | 0.44     |
+| Success rate            | 0        |
+| episodes                | 158      |
+| mean 100 episode reward | -32.3    |
+| steps                   | 5017     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 54       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 159      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 5061     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 54       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 160      |
+| mean 100 episode reward | -32.3    |
+| steps                   | 5077     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 53       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 161      |
+| mean 100 episode reward | -32.3    |
+| steps                   | 5123     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 53       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 162      |
+| mean 100 episode reward | -32.3    |
+| steps                   | 5155     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 53       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 163      |
+| mean 100 episode reward | -32.3    |
+| steps                   | 5165     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 52       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 164      |
+| mean 100 episode reward | -32.1    |
+| steps                   | 5265     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 52       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 165      |
+| mean 100 episode reward | -32.1    |
+| steps                   | 5292     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 52       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 166      |
+| mean 100 episode reward | -32.2    |
+| steps                   | 5328     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.45     |
+| Success rate            | 0        |
+| episodes                | 167      |
+| mean 100 episode reward | -31.5    |
+| steps                   | 5350     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 168      |
+| mean 100 episode reward | -31.4    |
+| steps                   | 5375     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 169      |
+| mean 100 episode reward | -31.3    |
+| steps                   | 5393     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 170      |
+| mean 100 episode reward | -31.3    |
+| steps                   | 5406     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.46     |
+| Success rate            | 0        |
+| episodes                | 171      |
+| mean 100 episode reward | -31      |
+| steps                   | 5417     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 51       |
+| Collision rate          | 0.47     |
+| Success rate            | 0        |
+| episodes                | 172      |
+| mean 100 episode reward | -31      |
+| steps                   | 5428     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 50       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 173      |
+| mean 100 episode reward | -30.9    |
+| steps                   | 5446     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 50       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 174      |
+| mean 100 episode reward | -30.6    |
+| steps                   | 5486     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 50       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 175      |
+| mean 100 episode reward | -30.5    |
+| steps                   | 5494     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 50       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 176      |
+| mean 100 episode reward | -30.1    |
+| steps                   | 5507     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 50       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 177      |
+| mean 100 episode reward | -30.1    |
+| steps                   | 5541     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 49       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 178      |
+| mean 100 episode reward | -29.8    |
+| steps                   | 5584     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 49       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 179      |
+| mean 100 episode reward | -29.6    |
+| steps                   | 5596     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 49       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 180      |
+| mean 100 episode reward | -29.6    |
+| steps                   | 5603     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 49       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 181      |
+| mean 100 episode reward | -29.6    |
+| steps                   | 5616     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 48       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 182      |
+| mean 100 episode reward | -30.1    |
+| steps                   | 5716     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 48       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 183      |
+| mean 100 episode reward | -30.1    |
+| steps                   | 5726     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 48       |
+| Collision rate          | 0.48     |
+| Success rate            | 0        |
+| episodes                | 184      |
+| mean 100 episode reward | -30.1    |
+| steps                   | 5736     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 48       |
+| Collision rate          | 0.49     |
+| Success rate            | 0        |
+| episodes                | 185      |
+| mean 100 episode reward | -30      |
+| steps                   | 5767     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 47       |
+| Collision rate          | 0.5      |
+| Success rate            | 0        |
+| episodes                | 186      |
+| mean 100 episode reward | -29      |
+| steps                   | 5811     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 47       |
+| Collision rate          | 0.51     |
+| Success rate            | 0        |
+| episodes                | 187      |
+| mean 100 episode reward | -28.7    |
+| steps                   | 5817     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 47       |
+| Collision rate          | 0.52     |
+| Success rate            | 0        |
+| episodes                | 188      |
+| mean 100 episode reward | -28.6    |
+| steps                   | 5825     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 47       |
+| Collision rate          | 0.52     |
+| Success rate            | 0        |
+| episodes                | 189      |
+| mean 100 episode reward | -28.6    |
+| steps                   | 5833     |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 47       |
+| Collision rate          | 0.53     |
+| Success rate            | 0        |
+| episodes                | 190      |
+| mean 100 episode reward | -28.1    |
+| steps                   | 5837     |
+--------------------------------------

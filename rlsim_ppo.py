@@ -1,19 +1,22 @@
-import rlsim_env
-
-from collections import deque
-
+# import gym
+from __future__ import division
+from __future__ import with_statement
+from __future__ import absolute_import
+import random
 import numpy as np
 import scipy.signal
-
+import rlsim_env
 import tensorflow as tf
+from collections import deque
 from sklearn.utils import shuffle
+from matplotlib import pyplot as plt
 
 seed = 0
 np.random.seed(seed)
 
 class Policy(object):
     def __init__(self, obs_dim, act_dim, clip_range=0.2,
-                 epochs=10, lr=3e-5, hdim=64, max_std=0.1,
+                 epochs=10, lr=3e-5, convs=[(32, 8, 4), (64, 4, 2), (64, 3, 1)], hiddens=[256], max_std=0.1,
                  seed=0):
         
         self.seed=0
@@ -25,7 +28,8 @@ class Policy(object):
         
         self.epochs = epochs
         self.lr = lr
-        self.hdim = hdim
+        self.convs = convs
+        self.hiddens = hiddens
         self.max_std = max_std
         
         self._build_graph()
@@ -41,17 +45,10 @@ class Policy(object):
             self._loss_train_op()
             self.init = tf.global_variables_initializer()
             self.variables = tf.global_variables()
-            self.saver = tf.train.Saver()
             
-    def save_graph(self, i):
-        self.saver.save(self.sess, "./ppo_net/ppo_iter_{}_policy.ckpt".format(i))
-
-    def restore_graph(self, i):
-        self.saver.restore(self.sess, "./ppo_net/ppo_iter_{}_policy.ckpt".format(i))
-
     def _placeholders(self):
         # observations, actions and advantages:
-        self.obs_ph = tf.placeholder(tf.float32, (None, self.obs_dim), 'obs')
+        self.obs_ph = tf.placeholder(tf.float32, [None] + list(self.obs_dim), 'obs')
         self.act_ph = tf.placeholder(tf.float32, (None, self.act_dim), 'act')
         self.advantages_ph = tf.placeholder(tf.float32, (None,), 'advantages')
 
@@ -64,19 +61,31 @@ class Policy(object):
 
     def _policy_nn(self):
         
-        hid1_size = self.hdim
-        hid2_size = self.hdim
+#         hid1_size = self.hdim
+#         hid2_size = self.hdim
+        out = self.obs_ph
+        # CONV LAYERS
+        for num_outputs, kernel_size, stride in self.convs:
+            out = tf.contrib.layers.convolution2d(out,
+                                                  num_outputs=num_outputs,
+                                                  kernel_size=kernel_size,
+                                                  stride=stride,
+                                                  activation_fn=tf.nn.relu)
+        out = tf.layers.flatten(out)    
         
-        # TWO HIDDEN LAYERS
-        out = tf.layers.dense(self.obs_ph, hid1_size, tf.tanh,
-                              kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h1")
-        out = tf.layers.dense(out, hid2_size, tf.tanh,
-                              kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h2")
+        # HIDDEN LAYERS
+        for hidden in self.hiddens:
+            out = tf.layers.dense(out, hidden, tf.tanh, kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed))
+        
+#         out = tf.layers.dense(self.obs_ph, hid1_size, tf.tanh,
+#                               kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h1")
+#         out = tf.layers.dense(out, hid2_size, tf.tanh,
+#                               kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), name="h2")
         
         # MEAN FUNCTION
-        self.mean = tf.layers.dense(out, self.act_dim,tf.sigmoid,
-                                kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed), 
-                                name="mean")
+        self.mean = tf.layers.dense(out, self.act_dim, tf.sigmoid,
+                                    kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed),
+                                    name="mean")
         # UNIT VARIANCE
         self.logits_std = tf.get_variable("logits_std",shape=(1,),initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed))
         self.std = self.max_std*tf.ones_like(self.mean)*tf.sigmoid(self.logits_std)
@@ -148,9 +157,9 @@ class Policy(object):
         batch_size = observes.shape[0] // num_batches
         
         old_means_np, old_std_np = self.sess.run([self.mean, self.std],{self.obs_ph: observes}) # COMPUTE OLD PARAMTER
-        for e in range(self.epochs):
+        for e in xrange(self.epochs):
             observes, actions, advantages, old_means_np, old_std_np = shuffle(observes, actions, advantages, old_means_np, old_std_np, random_state=self.seed)
-            for j in range(num_batches): 
+            for j in xrange(num_batches): 
                 start = j * batch_size
                 end = (j + 1) * batch_size
                 feed_dict = {self.obs_ph: observes[start:end,:],
@@ -173,14 +182,16 @@ class Policy(object):
     def close_sess(self):
         self.sess.close()
 
+
 class Value(object):
-    def __init__(self, obs_dim, epochs=20, lr=1e-4, hdim=64, seed=0):
+    def __init__(self, obs_dim, epochs=20, lr=1e-4,  convs=[(32, 8, 4), (64, 4, 2), (64, 3, 1)], hiddens=[256],  seed=0):
         self.seed = seed
     
         self.obs_dim = obs_dim
         self.epochs = epochs
         self.lr = lr
-        self.hdim = hdim
+        self.convs = convs
+        self.hiddens = hiddens
         
         self._build_graph()
         self._init_session()
@@ -188,23 +199,38 @@ class Value(object):
     def _build_graph(self):
         self.g = tf.Graph()
         with self.g.as_default():
-            self.obs_ph = tf.placeholder(tf.float32, (None, self.obs_dim), 'obs_valfunc')
+            self.obs_ph = tf.placeholder(tf.float32, [None] + list(self.obs_dim), 'obs_valfunc')
             self.val_ph = tf.placeholder(tf.float32, (None,), 'val_valfunc')
             
-            hid1_size = self.hdim 
-            hid2_size = self.hdim 
+#             hid1_size = self.hdim 
+#             hid2_size = self.hdim 
+
+            out = self.obs_ph
+            # CONV LAYERS
+            for num_outputs, kernel_size, stride in self.convs:
+                out = tf.contrib.layers.convolution2d(out,
+                                                      num_outputs=num_outputs,
+                                                      kernel_size=kernel_size,
+                                                      stride=stride,
+                                                      activation_fn=tf.nn.relu)
+            out = tf.layers.flatten(out)    
+        
+            # HIDDEN LAYERS
+            for hidden in self.hiddens:
+                out = tf.layers.dense(out, hidden, tf.tanh, kernel_initializer=tf.random_normal_initializer(stddev=0.01,seed= self.seed))
             
-            out = tf.layers.dense(self.obs_ph, hid1_size, tf.tanh,
-                                  kernel_initializer=tf.random_normal_initializer(
-                                      stddev=0.01,seed=self.seed), name="h1")
-            out = tf.layers.dense(out, hid2_size, tf.tanh,
-                                  kernel_initializer=tf.random_normal_initializer(
-                                      stddev=0.01,seed=self.seed), name="h2")
+#             out = tf.layers.dense(self.obs_ph, hid1_size, tf.tanh,
+#                                   kernel_initializer=tf.random_normal_initializer(
+#                                       stddev=0.01,seed=self.seed), name="h1")
+#             out = tf.layers.dense(out, hid2_size, tf.tanh,
+#                                   kernel_initializer=tf.random_normal_initializer(
+#                                       stddev=0.01,seed=self.seed), name="h2")
             out = tf.layers.dense(out, 1,
                                   kernel_initializer=tf.random_normal_initializer(
                                       stddev=0.01,seed=self.seed), name='output')
             self.out = tf.squeeze(out)
-            
+            # self.out = out
+
             # L2 LOSS
             self.loss = tf.reduce_mean(tf.square(self.out - self.val_ph))
             
@@ -214,14 +240,7 @@ class Value(object):
             
             self.init = tf.global_variables_initializer()
             self.variables = tf.global_variables()
-            self.saver = tf.train.Saver()
     
-    def save_graph(self, i):
-        self.saver.save(self.sess, "./ppo_net/ppo_iter_{}_value.ckpt".format(i))
-
-    def restore_graph(self, i):
-        self.saver.restore(self.sess, "./ppo_net/ppo_iter_{}_value.ckpt".format(i))
-
     def _init_session(self):
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
@@ -231,9 +250,9 @@ class Value(object):
     def fit(self, x, y, batch_size=32):
         num_batches = max(x.shape[0] // batch_size, 1)
         x_train, y_train = x, y
-        for e in range(self.epochs):
+        for e in xrange(self.epochs):
             x_train, y_train = shuffle(x_train, y_train, random_state=self.seed)
-            for j in range(num_batches):
+            for j in xrange(num_batches):
                 start = j * batch_size
                 end = (j + 1) * batch_size
                 feed_dict = {self.obs_ph: x_train[start:end, :],
@@ -247,10 +266,12 @@ class Value(object):
     def predict(self, x): # PREDICT VALUE OF THE GIVEN STATE
         feed_dict = {self.obs_ph: x}
         y_hat = self.sess.run(self.out, feed_dict=feed_dict)
-        return np.squeeze(y_hat)
+        #return np.squeeze(y_hat)
+        return y_hat
 
     def close_sess(self):
         self.sess.close()
+
 
 def discount(x, gamma=0.99): # compute discount
     return scipy.signal.lfilter([1.0], [1.0, -gamma], x[::-1])[::-1]
@@ -258,16 +279,21 @@ def discount(x, gamma=0.99): # compute discount
 def add_value(trajectories, val_func): # Add value estimation for each trajectories
     for trajectory in trajectories:
         observes = trajectory['observes']
+        # print(np.shape(observes)) #debug
         values = val_func.predict(observes)
         trajectory['values'] = values
 
-def add_gae(trajectories, gamma=0.99, lam=0.98): # generalized advantage estimation (for training stability)
+def add_gae(trajectories, gamma=0.99, lam=0.95): # generalized advantage estimation (for training stability)
     for trajectory in trajectories:
         rewards = trajectory['rewards']
         values = trajectory['values']
         
         # temporal differences
-        tds = rewards - values + np.append(values[1:] * gamma, 0)
+        # print(values) #debug
+        if np.isscalar(values) == 0:
+            tds = rewards - values + np.append(values[1:] * gamma, 0)
+        else:
+            tds = rewards - values
         advantages = discount(tds, gamma * lam)
         
         trajectory['advantages'] = advantages
@@ -295,14 +321,17 @@ def run_episode(env, policy, animate=False, evaluation=False): # Run policy and 
     while not done:
         if animate:
             env.render()
-        obs = obs.astype(np.float32).reshape((1, -1))
+        obs = obs.astype(np.float32).reshape((-1,84,84,4))  # .reshape((1, -1))
+        # print(obs[0][1][1][1]) #debug
         observes.append(obs)
         if evaluation:
             action = policy.control(obs).reshape((1, -1)).astype(np.float32)
         else:
             action = policy.sample(obs).reshape((1, -1)).astype(np.float32)
         actions.append(action)
-        obs, reward, done, info = env.step(continuous_action(action))
+
+        # action_ = tf.squeeze(action)
+        obs, reward, done, info = env.step(continuous_action(action[0]))
         if not isinstance(reward, float):
             reward = np.asscalar(reward)
         rewards.append(reward)
@@ -310,13 +339,10 @@ def run_episode(env, policy, animate=False, evaluation=False): # Run policy and 
         
     return (np.concatenate(observes), np.concatenate(actions), np.array(rewards, dtype=np.float32), infos)
 
-def run_policy(env, policy, episodes, evaluation=False, update=0): # collect trajectories. if 'evaluation' is true, then only mean value of policy distribution is used without sampling.
+def run_policy(env, policy, episodes, evaluation=False): # collect trajectories. if 'evaluation' is ture, then only mean value of policy distribution is used without sampling.
     total_steps = 0
     trajectories = []
-    total_reward = 0.0
-    total_success = 0.0
-    #total_dist = 0.0
-    for e in range(episodes):
+    for e in xrange(episodes):
         observes, actions, rewards, infos = run_episode(env, policy, evaluation=evaluation)
         total_steps += observes.shape[0]
         trajectory = {'observes': observes,
@@ -324,25 +350,6 @@ def run_policy(env, policy, episodes, evaluation=False, update=0): # collect tra
                       'rewards': rewards,
                       'infos': infos}
         trajectories.append(trajectory)
-
-        if (update%10)==0:
-            success = [a for a in infos]
-            total_reward += sum(rewards)
-            total_success += any(success)
-            #total_dist += dist
-            result = "epi : {}, rewards : {:.4}, success : {}".format(e,sum(rewards),any(success))
-            with open("result.txt","a") as text_file:
-                text_file.write(result+"\n")
-            print result
-
-    mean_reward=total_reward/episodes
-    mean_success=total_success/episodes
-    #mean_dist=total_dist/episodes
-    result = "avg {} / rewards : {:.4}, success : {}".format(update,mean_reward,mean_success)
-    with open("result.txt","a") as text_file:
-        text_file.write(result+"\n")
-        print result
-    
     return trajectories
 
 def continuous_action(action):
@@ -360,28 +367,29 @@ def continuous_action(action):
 
     return [angle_cmd,pedal_cmd,break_cmd]
 
-env = rlsim_env.make('straight_4lane')
-obs_dim = env.observation_space
-act_dim = 2 #env.action_space
 
-policy = Policy(obs_dim, act_dim, epochs=50, hdim=64, lr=3e-4, clip_range=0.2,seed=seed)
-val_func = Value(obs_dim, epochs=100, hdim=64, lr=1e-3, seed=seed)
+# env = gym.make('Pendulum-v0')
+env = rlsim_env.make('straight_4lane_cam')
 
-policy.restore_graph(0)
-val_func.restore_graph(0)
+print 'updated'
 
-episode_size = 50
+seed = 0
+np.random.seed(seed)
+random.seed(seed)
 
-batch_size = 64
-nupdates = 10000
+obs_dim = env.observation_space.shape #.shape[0]
+act_dim = 2 # env.action_space #.shape[0]
 
-print "start learning"
+policy = Policy(obs_dim, act_dim, epochs=50, convs=[(32, 8, 4), (64, 4, 2), (64, 3, 1)], hiddens=[256], lr=3e-4, clip_range=0.2,seed=seed)
+val_func = Value(obs_dim, epochs=100, convs=[(32, 8, 4), (64, 4, 2), (64, 3, 1)], hiddens=[256], lr=1e-3, seed=seed)
 
-env.reset()
+episode_size = 8 #80
+batch_size = 128
+nupdates = 100
 
-for update in range(nupdates+1):
+for update in xrange(nupdates):
 
-    trajectories = run_policy(env, policy, episodes=episode_size, update=update)
+    trajectories = run_policy(env, policy, episodes=episode_size)
 
     add_value(trajectories, val_func)
     add_gae(trajectories)
@@ -391,11 +399,7 @@ for update in range(nupdates+1):
     vf_loss = val_func.fit(observes, returns,batch_size=batch_size)
     
     mean_ret = np.mean([np.sum(t['rewards']) for t in trajectories])
-    if (update%10) == 0:
-        result = '[{}/{}] Mean Ret : {:.3f}, Value Loss : {:.3f}, Policy loss : {:.5f}, Policy KL : {:.5f}, Policy Entropy : {:.3f} ***'.format(update, nupdates, mean_ret, vf_loss, pol_loss, pol_kl, pol_entropy)
-        
-        policy.save_graph(update)
-        val_func.save_graph(update)
-        with open("result.txt","a") as text_file:
-            text_file.write(result+"\n")
-            print result
+    if (update%1) == 0 or update == (nupdates-1) :
+        print '[{}/{}] Mean Ret : {:.3f}, Value Loss : {:.3f}, Policy loss : {:.5f}, Policy KL : {:.5f}, Policy Entropy : {:.3f} ***'.format(
+                            (update+1), nupdates, mean_ret, vf_loss, pol_loss, pol_kl, pol_entropy)
+

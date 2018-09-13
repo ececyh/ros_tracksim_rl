@@ -1,0 +1,5 @@
+mean 100 episode reward,Success rate,% time spent exploring,Collision rate,episodes,steps
+-8.7,0.0,99,0.0,2,37
+-5.7,0.0,98,0.5,3,121
+992.9,0.0,98,0.3333333333333333,4,221
+1492.1,0.0,97,0.25,5,321

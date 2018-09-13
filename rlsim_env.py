@@ -6,6 +6,7 @@ import time
 import random
 import threading
 from cv_bridge import CvBridge, CvBridgeError
+import gym
 
 from dbw_mkz_msgs.msg import SteeringCmd, BrakeCmd, GearCmd, ThrottleCmd, TurnSignalCmd
 from dbw_mkz_msgs.msg import Gear
@@ -88,6 +89,7 @@ class straight_4lane_env(object):
         self.feature_state = np.zeros(10)
 
         self.deviation = 0
+        self.dev_ = 0
         self.reach_goal = False
         self.out_of_lane = False
         self.x_coord = self.init_pose.position.x
@@ -220,12 +222,12 @@ class straight_4lane_cam_env(straight_4lane_env):
     def __init__(self):
         super(straight_4lane_cam_env, self).__init__()
 
-        self.img_state = np.zeros([800,800,3])
+        self.img_state = np.zeros([84,84,1])
         self.img_state_stacked = []
 
         self.cam_sub = rospy.Subscriber('vehicle/front_camera/image_raw',Image,self.cam_state_callback)
 
-        self.observation_space = (800,800,3)
+        self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=(84,84,4))       
         self.action_space = 3
 
         self.time_limit = 100
@@ -236,10 +238,15 @@ class straight_4lane_cam_env(straight_4lane_env):
             cv_image = self.bridge.imgmsg_to_cv2(data, "rgb8")
         except CvBridgeError as e:
             print(e)
+        
+        cv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2GRAY)
+        cv_image = cv2.resize(cv_image, (84,84), interpolation=cv2.INTER_AREA)
 
-        (raws,cols,channels) = cv_image.shape
+        cv_image = np.array(cv_image).astype(np.float32) / 255.0       
 
-        self.img_state = cv_image
+        # (raws,cols,channels) = cv_image.shape
+
+        self.img_state = cv_image[:, :, None]
 
     def render(self):
         cv2.imshow("camera image", self.img_state)
@@ -335,18 +342,18 @@ class straight_4lane_obs_env(straight_4lane_env):
 
             obs_x = obs_pose.x - pose.x
             obs_y = obs_pose.y - pose.y
-            obs_features += [obs_x, obs_y]
+            obs_features += [obs_x, obs_y] 
 
             if abs(obs_y)<2.5:
-                if abs(obs_x)<5:
+                if obs_x>5:
                     cur_rep += 1 + 0.8*(5-abs(obs_x))
-                elif abs(obs_x)<10:
+                elif obs_x<10:
                     cur_rep += 0.2*(10-abs(obs_x))
-                elif abs(obs_x)<15 and lin.x > 15:
+                elif obs_x<15 and lin.x > 15:
                     cur_rep += 0.5
-                elif abs(obs_x)<20 and lin.x > 20:
+                elif obs_x<20 and lin.x > 20:
                     cur_rep += 0.2
-                elif abs(obs_x)<25 and lin.x > 25:
+                elif obs_x<25 and lin.x > 25:
                     cur_rep += 0.1
                 elif lin.x > 30:
                     cur_rep += 0.1
@@ -410,6 +417,45 @@ class straight_4lane_obs_env(straight_4lane_env):
 
         self.reset_trigger = True
 
+        # move to empty space
+        for n, obs in enumerate(self.obs_list):
+            model_state = ModelState()
+            model_state.model_name = 'mkz'+str(n)
+
+            x = -150 + 40*n
+            y = -100
+
+            model_state.pose = Pose(Point(x,y,0.1),Quaternion(0,0,0,1))
+
+            while(True):
+                self.set_state_pub.publish(model_state)
+                rospy.sleep(0.01)
+                time.sleep(0.01)
+
+                obs_x = self.feature_state[8 + 2*n] + self.feature_state[0]
+                obs_y = self.feature_state[8 + 2*n+1] + self.feature_state[1]
+
+                x_error = abs(x - obs_x)
+                y_error = abs(y - obs_y)
+                if x_error + y_error < 0.5:
+                    break
+
+        # reset player vehicle
+        self.init_pose.position.y = -7.5 + 5 * random.randrange(4)
+        self.init_state.pose = self.init_pose
+
+        while(True):
+            self.set_state_pub.publish(self.init_state)
+            rospy.sleep(0.01)
+            time.sleep(0.01)
+
+            if not self.out_of_lane:
+                x_error = abs(self.init_pose.position.x - self.feature_state[0])
+                y_error = abs(self.init_pose.position.y - self.feature_state[1])
+                if x_error + y_error < 0.5:
+                    break
+
+        # reset non-player vehicles
         rd = [range(4),range(4)]
         random.shuffle(rd[0])
         random.shuffle(rd[1])
@@ -440,24 +486,12 @@ class straight_4lane_obs_env(straight_4lane_env):
                 if x_error + y_error < 0.5:
                     break
 
-        self.init_pose.position.y = -7.5 + 5 * random.randrange(4)
-
-        while(True):
-            self.set_state_pub.publish(self.init_state)
-            rospy.sleep(0.01)
-            time.sleep(0.01)
-
-            if not self.out_of_lane:
-                x_error = abs(self.init_pose.position.x - self.feature_state[0])
-                y_error = abs(self.init_pose.position.y - self.feature_state[1])
-                if x_error + y_error < 0.5:
-                    break
-
         self.reach_goal = False
         self.out_of_lane = False
 
         self.x_coord = self.init_pose.position.x
         self.x_coord = self.init_pose.position.x
+        self.dev_ = 0
 
         self.repulse = 0
         self.collision = False
@@ -499,29 +533,30 @@ class straight_4lane_obs_env(straight_4lane_env):
     def is_terminated(self):
 
         if self.time == self.time_limit:
-            return True, False
+            return True, 0
 
         if self.out_of_lane:
-            return True, False
+            return True, -2
 
         if self.collision:
-            return True, False
+            return True, -1
 
         if self.reach_goal:
-            return True, True
+            return True, 1
         else:
-            return False, False
+            return False, 0
 
     def reward(self):
 
         movement = self.feature_state[0] - self.x_coord
         self.x_coord = self.feature_state[0]
 
-        dev = self.deviation
+        dev = self.deviation - self.dev_
+        self.dev_ = self.deviation
 
         rep = max(5,self.repulse)
 
-        weighted_reward = 0.1 * movement + 10 * self.reach_goal - 5 * self.out_of_lane - 1 * dev - 5 * self.collision - 1 * rep
+        weighted_reward = 0.1 * movement + 10 * self.reach_goal - 10 * self.out_of_lane - 1 * dev - 10 * self.collision #- 0.5 * rep
         #print ("m :{:.2f}, r :{}, o :{}, d :{:.2f}, wr: {:.2f}".format(movement, self.reach_goal, self.out_of_lane, dev, weighted_reward))
         
         return weighted_reward
@@ -531,12 +566,12 @@ class straight_4lane_obs_cam_env(straight_4lane_obs_env):
     def __init__(self):
         super(straight_4lane_obs_cam_env, self).__init__()
 
-        self.img_state = np.zeros([800,800,3])
+        self.img_state = np.zeros([84,84,1])
         self.img_state_stacked = []
 
         self.cam_sub = rospy.Subscriber('vehicle/front_camera/image_raw',Image,self.cam_state_callback)
 
-        self.observation_space = (800,800,3)
+        self.observation_space = gym.spaces.Box(low=0.0, high=1.0, shape=(84,84,4))  
         self.action_space = 3
 
         self.time_limit = 100
@@ -548,9 +583,14 @@ class straight_4lane_obs_cam_env(straight_4lane_obs_env):
         except CvBridgeError as e:
             print(e)
 
-        (raws,cols,channels) = cv_image.shape
+        cv_image = cv2.cvtColor(cv_image, cv2.COLOR_RGB2GRAY)
+        cv_image = cv2.resize(cv_image, (84,84), interpolation=cv2.INTER_AREA)
 
-        self.img_state = cv_image
+        cv_image = np.array(cv_image).astype(np.float32) / 255.0       
+
+        # (raws,cols,channels) = cv_image.shape
+
+        self.img_state = cv_image[:, :, None]
 
     def render(self):
         cv2.imshow("camera image", self.img_state)
@@ -614,10 +654,9 @@ if __name__ == "__main__":
 
     for t in range(100):
         env.reset()
-        for i in range(200):
+        for i in range(100):
             env.render()
             #print(i)
             s,r,d,i = env.step([0.0,0.5,0])
             if d:
                 break
-

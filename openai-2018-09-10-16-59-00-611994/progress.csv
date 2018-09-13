@@ -1,0 +1,5 @@
+mean 100 episode reward,episodes,steps,% time spent exploring
+-9.4,2,10,99
+-12.9,3,36,99
+-10.1,4,81,99
+-9.6,5,103,99

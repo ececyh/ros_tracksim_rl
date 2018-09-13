@@ -4,7 +4,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz1:
@@ -13,7 +13,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz2:
@@ -22,7 +22,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz3:
@@ -31,7 +31,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz4:
@@ -40,7 +40,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz5:
@@ -49,7 +49,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz6:
@@ -58,7 +58,7 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
 
 - mkz7:
@@ -67,5 +67,5 @@
     z: 0.1
     yaw: 0.0
     model: mkz
-    color: green
+    color: white
     pub_tf: false
