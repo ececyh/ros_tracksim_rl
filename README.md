@@ -33,3 +33,4 @@ Patch Note
  - observation : 8+16 dim (car state + relative pos to other cars) or (800,800,120) dim (4 stacked rgb)
  - action : steering (-8.0 ~ 8.0), accel (0.0 ~ 1.0), brake (0.0 ~ 1.0)
  - reward : 0.1 * movement + 10 * reach_goal - 5 * out_of_lane - 1 * deviation - 5 * collision - 1 * repulsive
+# ros_tracksim_rl

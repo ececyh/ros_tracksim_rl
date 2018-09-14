@@ -8857,3 +8857,48 @@ S a v i n g   m o d e l   d u e   t o   m e a n   r e w a r d   i n c r e a s e 
 | mean 100 episode reward | 20.5     |
 | steps                   | 28310    |
 --------------------------------------
+--------------------------------------
+| % time spent exploring  | 1        |
+| Collision rate          | 0.45     |
+| Derailment rate         | 0.29     |
+| Success rate            | 0.26     |
+| episodes                | 986      |
+| mean 100 episode reward | 20.5     |
+| steps                   | 28350    |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 1        |
+| Collision rate          | 0.46     |
+| Derailment rate         | 0.29     |
+| Success rate            | 0.25     |
+| episodes                | 987      |
+| mean 100 episode reward | 20.1     |
+| steps                   | 28378    |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 1        |
+| Collision rate          | 0.46     |
+| Derailment rate         | 0.29     |
+| Success rate            | 0.25     |
+| episodes                | 988      |
+| mean 100 episode reward | 20       |
+| steps                   | 28410    |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 1        |
+| Collision rate          | 0.46     |
+| Derailment rate         | 0.28     |
+| Success rate            | 0.26     |
+| episodes                | 989      |
+| mean 100 episode reward | 20.4     |
+| steps                   | 28450    |
+--------------------------------------
+--------------------------------------
+| % time spent exploring  | 1        |
+| Collision rate          | 0.46     |
+| Derailment rate         | 0.28     |
+| Success rate            | 0.26     |
+| episodes                | 990      |
+| mean 100 episode reward | 20.3     |
+| steps                   | 28484    |
+--------------------------------------
